@@ -148,8 +148,9 @@ class _PaymentTransactionInfoState extends State<PaymentTransactionInfo> {
 
         Padding(
           padding: EdgeInsets.only(top: parentHeight*0.03, left: parentWidth*0.05,
-            right: parentWidth*0.05,),
+            right: parentWidth*0.05),
           child: Container(
+            height: parentHeight*0.35,
             decoration: BoxDecoration(
               color: CommonColor.APP_NAME_COLOR.withOpacity(0.1),
               borderRadius: BorderRadius.circular(10),
@@ -207,14 +208,34 @@ class _PaymentTransactionInfoState extends State<PaymentTransactionInfo> {
                   ),
                 ),
 
+                Padding(
+                  padding: EdgeInsets.only(top: parentHeight*0.01),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    children: [
+                      Padding(
+                        padding: EdgeInsets.only(left: parentWidth*0.03, top: parentHeight*0.01),
+                        child: Text("UPI transaction ID",
+                          style:TextStyle(
+                              fontSize: SizeConfig.blockSizeHorizontal*3.4,
+                              fontFamily: 'Roboto_Regular',
+                              fontWeight: FontWeight.w400,
+                              color: Colors.black,
+                              height: parentHeight*0.0013
+                          ),textAlign: TextAlign.center,),
+                      ),
+                    ],
+                  ),
+                ),
+
                 Row(
                   mainAxisAlignment: MainAxisAlignment.start,
                   children: [
                     Padding(
                       padding: EdgeInsets.only(left: parentWidth*0.03, top: parentHeight*0.01),
-                      child: Text("Axis Bank Ltd.",
+                      child: Text("563789153246",
                         style:TextStyle(
-                            fontSize: SizeConfig.blockSizeHorizontal*3.5,
+                            fontSize: SizeConfig.blockSizeHorizontal*3.4,
                             fontFamily: 'Roboto_Regular',
                             fontWeight: FontWeight.w400,
                             color: Colors.black,
@@ -228,10 +249,36 @@ class _PaymentTransactionInfoState extends State<PaymentTransactionInfo> {
                   mainAxisAlignment: MainAxisAlignment.start,
                   children: [
                     Padding(
+                      padding: EdgeInsets.only(left: parentWidth * 0.03, top: parentHeight*0.02),
+                      child: RichText(
+                          text: const TextSpan(
+                              text: "To:",
+                              style: TextStyle(
+                                  color: CommonColor.BLACK_COLOR,
+                                  fontWeight: FontWeight.w400,
+                                  fontFamily: 'Roboto-Regular',
+                                  fontSize: 14),
+                              children: [
+                                TextSpan(
+                                    text: " SANGHARSH SULKE DEVELOPER",
+                                    style: TextStyle(
+                                        color: CommonColor.BLACK_COLOR,
+                                        fontWeight: FontWeight.w600,
+                                        fontFamily: 'Roboto-Regular',
+                                        fontSize: 13)),
+                              ])),
+                    ),
+                  ],
+                ),
+
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  children: [
+                    Padding(
                       padding: EdgeInsets.only(left: parentWidth*0.03, top: parentHeight*0.01),
-                      child: Text("XXXXXX0253",
+                      child: Text("sangharshsulke@okaxisbank",
                         style:TextStyle(
-                            fontSize: SizeConfig.blockSizeHorizontal*3.5,
+                            fontSize: SizeConfig.blockSizeHorizontal*3.2,
                             fontFamily: 'Roboto_Regular',
                             fontWeight: FontWeight.w400,
                             color: Colors.black,
@@ -241,11 +288,134 @@ class _PaymentTransactionInfoState extends State<PaymentTransactionInfo> {
                   ],
                 ),
 
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  children: [
+                    Padding(
+                      padding: EdgeInsets.only(left: parentWidth * 0.03, top: parentHeight*0.02),
+                      child: RichText(
+                          text: const TextSpan(
+                              text: "From:",
+                              style: TextStyle(
+                                  color: CommonColor.BLACK_COLOR,
+                                  fontWeight: FontWeight.w400,
+                                  fontFamily: 'Roboto-Regular',
+                                  fontSize: 14),
+                              children: [
+                                TextSpan(
+                                    text: " BHOSALE ASHISH RAJESH",
+                                    style: TextStyle(
+                                        color: CommonColor.BLACK_COLOR,
+                                        fontWeight: FontWeight.w600,
+                                        fontFamily: 'Roboto-Regular',
+                                        fontSize: 13)),
+                              ])),
+                    ),
+                  ],
+                ),
 
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  children: [
+                    Padding(
+                      padding: EdgeInsets.only(left: parentWidth*0.03, top: parentHeight*0.01),
+                      child: Text("bhosaleashish@okaxisbank",
+                        style:TextStyle(
+                            fontSize: SizeConfig.blockSizeHorizontal*3.2,
+                            fontFamily: 'Roboto_Regular',
+                            fontWeight: FontWeight.w400,
+                            color: Colors.black,
+                            height: parentHeight*0.0013
+                        ),textAlign: TextAlign.center,),
+                    ),
+                  ],
+                ),
 
+                Padding(
+                  padding: EdgeInsets.only(top: parentHeight*0.01),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    children: [
+                      Padding(
+                        padding: EdgeInsets.only(left: parentWidth*0.03, top: parentHeight*0.01),
+                        child: Text("Google transaction ID",
+                          style:TextStyle(
+                              fontSize: SizeConfig.blockSizeHorizontal*3.4,
+                              fontFamily: 'Roboto_Regular',
+                              fontWeight: FontWeight.w400,
+                              color: Colors.black,
+                              height: parentHeight*0.0013
+                          ),textAlign: TextAlign.center,),
+                      ),
+                    ],
+                  ),
+                ),
 
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  children: [
+                    Padding(
+                      padding: EdgeInsets.only(left: parentWidth*0.03, top: parentHeight*0.01),
+                      child: Text("HAFCg0Pa3-T_JK",
+                        style:TextStyle(
+                            fontSize: SizeConfig.blockSizeHorizontal*3.4,
+                            fontFamily: 'Roboto_Regular',
+                            fontWeight: FontWeight.w400,
+                            color: Colors.black,
+                            height: parentHeight*0.0013
+                        ),textAlign: TextAlign.center,),
+                    ),
+                  ],
+                ),
               ],
             ),
+          ),
+        ),
+
+        Padding(
+          padding: EdgeInsets.only(top: parentHeight*0.05),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Text("POWERD BY UPI",
+                style:TextStyle(
+                    fontSize: SizeConfig.blockSizeHorizontal*4.0,
+                    fontFamily: 'Roboto_Regular',
+                    fontWeight: FontWeight.w400,
+                    color: Colors.black,
+                    height: parentHeight*0.0013
+                ),textAlign: TextAlign.center,),
+            ],
+          ),
+        ),
+
+        Padding(
+          padding: EdgeInsets.only(top: parentHeight*0.02, right: parentWidth*0.05),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.end,
+            children: [
+              Container(
+                height: parentHeight*0.04,
+                width: parentWidth*0.3,
+                decoration: BoxDecoration(
+                  color: CommonColor.WELCOME_TEXT_COLOR,
+                  borderRadius: BorderRadius.circular(50)
+                ),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Text("Share Receipt",
+                      style:TextStyle(
+                          fontSize: SizeConfig.blockSizeHorizontal*3.7,
+                          fontFamily: 'Roboto_Regular',
+                          fontWeight: FontWeight.w400,
+                          color: Colors.white,
+                          height: parentHeight*0.0013
+                      )),
+                  ],
+                ),
+              ),
+            ],
           ),
         )
 
