@@ -17,5 +17,7 @@ class CommonColor{
   static const PAYMENT_SETTING_COLOR = const Color(0xFF3C3C43);
   static const BANK_CARD_BACKGROUND_COLOR = const Color(0xFF6D7188);
   static const ALL_BANK_COLOR = const Color(0xFF3E3E3E);
+  static const NOT_DEBIT_COLOR = const Color(0xFFFFE7E7);
+  static const DEBIT_ERROR_COLOR = const Color(0xFFEBB803);
 
 }

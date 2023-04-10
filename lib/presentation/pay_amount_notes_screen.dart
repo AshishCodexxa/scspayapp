@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:scspay/all_dialog/money_not_debit.dart';
 import 'package:scspay/common_file/common_color.dart';
 import 'package:scspay/common_file/size_config.dart';
 import 'package:scspay/presentation/enter_upi_pin_screen.dart';
@@ -96,7 +97,24 @@ class _TransferFromQRScanState extends State<TransferFromQRScan> {
                   fit: BoxFit.contain,)
                 ),
 
-                Image(image: AssetImage("assets/images/forword_icon.png")),
+                GestureDetector(
+                  onDoubleTap: (){},
+                  onTap: (){
+                    showModalBottomSheet(
+                        context: context,
+                        backgroundColor: Colors.transparent,
+                        isScrollControlled: true,
+                        isDismissible: true,
+                        enableDrag: true,
+                        builder: (BuildContext bc) {
+                          return MoneyNotDebit();
+                        });
+                  },
+                  child: Container(
+                    color: Colors.transparent,
+                      child: Image(image: AssetImage("assets/images/forword_icon.png"))
+                  ),
+                ),
 
 
                 Container(
