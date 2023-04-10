@@ -19,5 +19,6 @@ class CommonColor{
   static const ALL_BANK_COLOR = const Color(0xFF3E3E3E);
   static const NOT_DEBIT_COLOR = const Color(0xFFFFE7E7);
   static const DEBIT_ERROR_COLOR = const Color(0xFFEBB803);
+  static const CONTACT_BACKGROUND_COLOR = const Color(0xFFF2F2F2);
 
 }
