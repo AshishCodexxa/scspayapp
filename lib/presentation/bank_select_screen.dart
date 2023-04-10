@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:scspay/common_file/common_color.dart';
 import 'package:scspay/common_file/size_config.dart';
+import 'package:scspay/presentation/add_neft_account_details.dart';
 import 'package:scspay/presentation/bank_verification_screen.dart';
 
 
@@ -134,13 +135,22 @@ class _BankSelectionScreenState extends State<BankSelectionScreen> {
                                             ),
                                             Padding(
                                               padding: EdgeInsets.only(top: SizeConfig.screenHeight*0.01),
-                                              child: Text("HDFC Bank",
-                                                style: TextStyle(
-                                                    color: Colors.black,
-                                                    fontSize: SizeConfig.blockSizeHorizontal*3.5,
-                                                    fontWeight: FontWeight.w500,
-                                                    fontFamily: 'Roboto_Bold'
-                                                ),),
+                                              child: GestureDetector(
+                                                onDoubleTap: (){},
+                                                onTap: (){
+                                                  Navigator.push(context, MaterialPageRoute(builder: (context)=>NEFTAccountAddScreen()));
+                                                },
+                                                child: Container(
+                                                  color: Colors.transparent,
+                                                  child: Text("HDFC Bank",
+                                                    style: TextStyle(
+                                                        color: Colors.black,
+                                                        fontSize: SizeConfig.blockSizeHorizontal*3.5,
+                                                        fontWeight: FontWeight.w500,
+                                                        fontFamily: 'Roboto_Bold'
+                                                    ),),
+                                                ),
+                                              ),
                                             ),
                                           ],
                                         ),

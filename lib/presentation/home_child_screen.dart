@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:scspay/common_file/common_color.dart';
 import 'package:scspay/common_file/size_config.dart';
+import 'package:scspay/presentation/imps_name_account_list.dart';
+import 'package:scspay/presentation/neft_name_account_list.dart';
 import 'package:scspay/presentation/pay_amount_notes_screen.dart';
 import 'package:scspay/presentation/phone_number_list.dart';
 import 'package:scspay/presentation/qr_scanning_screen.dart';
+import 'package:scspay/presentation/rtgs_name_account_list.dart';
 
 class HomeScreen extends StatefulWidget {
   final HomeScreenListener mListener;
@@ -163,121 +166,142 @@ class _HomeScreenState extends State<HomeScreen> {
                     ),
                   ),
                 ),
-                Container(
-                  height: parentHeight * 0.12,
-                  width: parentWidth * 0.2,
-                  decoration: BoxDecoration(
-                      color: CommonColor.TRANSFER_OPTION_BACKGROUND,
-                      borderRadius: BorderRadius.circular(15)),
-                  child: Column(
-                    children: [
-                      Stack(
-                        alignment: Alignment.center,
-                        children: [
-                          Padding(
-                            padding: EdgeInsets.only(top: parentHeight * 0.015),
-                            child: Image(
-                                image: AssetImage("assets/images/circle.png")),
-                          ),
-                          Padding(
-                            padding: EdgeInsets.only(top: parentHeight * 0.015),
-                            child: Image(
-                                image:
-                                    AssetImage("assets/images/neft_icon.png")),
-                          ),
-                        ],
-                      ),
-                      Padding(
-                        padding: EdgeInsets.only(top: parentHeight * 0.007),
-                        child: Text(
-                          "NEFT Payment",
-                          style: TextStyle(
-                              color: Colors.black,
-                              fontSize: SizeConfig.blockSizeHorizontal * 3.2,
-                              fontFamily: "Roboto_Regular",
-                              fontWeight: FontWeight.w400),
-                          textAlign: TextAlign.center,
+                GestureDetector(
+                  onDoubleTap: (){},
+                  onTap: (){
+                    Navigator.push(context, MaterialPageRoute(builder: (context)=>NEFTNameAccountList()));
+                  },
+                  child: Container(
+                    height: parentHeight * 0.12,
+                    width: parentWidth * 0.2,
+                    decoration: BoxDecoration(
+                        color: CommonColor.TRANSFER_OPTION_BACKGROUND,
+                        borderRadius: BorderRadius.circular(15)),
+                    child: Column(
+                      children: [
+                        Stack(
+                          alignment: Alignment.center,
+                          children: [
+                            Padding(
+                              padding: EdgeInsets.only(top: parentHeight * 0.015),
+                              child: Image(
+                                  image: AssetImage("assets/images/circle.png")),
+                            ),
+                            Padding(
+                              padding: EdgeInsets.only(top: parentHeight * 0.015),
+                              child: Image(
+                                  image:
+                                      AssetImage("assets/images/neft_icon.png")),
+                            ),
+                          ],
                         ),
-                      ),
-                    ],
+                        Padding(
+                          padding: EdgeInsets.only(top: parentHeight * 0.007),
+                          child: Container(
+                            color: Colors.transparent,
+                            child: Text(
+                              "NEFT Payment",
+                              style: TextStyle(
+                                  color: Colors.black,
+                                  fontSize: SizeConfig.blockSizeHorizontal * 3.2,
+                                  fontFamily: "Roboto_Regular",
+                                  fontWeight: FontWeight.w400),
+                              textAlign: TextAlign.center,
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
                   ),
                 ),
-                Container(
-                  height: parentHeight * 0.12,
-                  width: parentWidth * 0.2,
-                  decoration: BoxDecoration(
-                      color: CommonColor.TRANSFER_OPTION_BACKGROUND,
-                      borderRadius: BorderRadius.circular(15)),
-                  child: Column(
-                    children: [
-                      Stack(
-                        alignment: Alignment.center,
-                        children: [
-                          Padding(
-                            padding: EdgeInsets.only(top: parentHeight * 0.015),
-                            child: Image(
-                                image: AssetImage("assets/images/circle.png")),
-                          ),
-                          Padding(
-                            padding: EdgeInsets.only(top: parentHeight * 0.015),
-                            child: Image(
-                                image:
-                                    AssetImage("assets/images/neft_icon.png")),
-                          ),
-                        ],
-                      ),
-                      Padding(
-                        padding: EdgeInsets.only(top: parentHeight * 0.007),
-                        child: Text(
-                          "RTGS Payment",
-                          style: TextStyle(
-                              color: Colors.black,
-                              fontSize: SizeConfig.blockSizeHorizontal * 3.2,
-                              fontFamily: "Roboto_Regular",
-                              fontWeight: FontWeight.w400),
-                          textAlign: TextAlign.center,
+                GestureDetector(
+                  onDoubleTap: (){},
+                  onTap: (){
+                    Navigator.push(context, MaterialPageRoute(builder: (context)=>RTGSNameAccountList()));
+                  },
+                  child: Container(
+                    height: parentHeight * 0.12,
+                    width: parentWidth * 0.2,
+                    decoration: BoxDecoration(
+                        color: CommonColor.TRANSFER_OPTION_BACKGROUND,
+                        borderRadius: BorderRadius.circular(15)),
+                    child: Column(
+                      children: [
+                        Stack(
+                          alignment: Alignment.center,
+                          children: [
+                            Padding(
+                              padding: EdgeInsets.only(top: parentHeight * 0.015),
+                              child: Image(
+                                  image: AssetImage("assets/images/circle.png")),
+                            ),
+                            Padding(
+                              padding: EdgeInsets.only(top: parentHeight * 0.015),
+                              child: Image(
+                                  image:
+                                      AssetImage("assets/images/neft_icon.png")),
+                            ),
+                          ],
                         ),
-                      ),
-                    ],
+                        Padding(
+                          padding: EdgeInsets.only(top: parentHeight * 0.007),
+                          child: Text(
+                            "RTGS Payment",
+                            style: TextStyle(
+                                color: Colors.black,
+                                fontSize: SizeConfig.blockSizeHorizontal * 3.2,
+                                fontFamily: "Roboto_Regular",
+                                fontWeight: FontWeight.w400),
+                            textAlign: TextAlign.center,
+                          ),
+                        ),
+                      ],
+                    ),
                   ),
                 ),
-                Container(
-                  height: parentHeight * 0.12,
-                  width: parentWidth * 0.2,
-                  decoration: BoxDecoration(
-                      color: CommonColor.TRANSFER_OPTION_BACKGROUND,
-                      borderRadius: BorderRadius.circular(15)),
-                  child: Column(
-                    children: [
-                      Stack(
-                        alignment: Alignment.center,
-                        children: [
-                          Padding(
-                            padding: EdgeInsets.only(top: parentHeight * 0.015),
-                            child: Image(
-                                image: AssetImage("assets/images/circle.png")),
-                          ),
-                          Padding(
-                            padding: EdgeInsets.only(top: parentHeight * 0.015),
-                            child: Image(
-                                image:
-                                    AssetImage("assets/images/imps_icon.png")),
-                          ),
-                        ],
-                      ),
-                      Padding(
-                        padding: EdgeInsets.only(top: parentHeight * 0.007),
-                        child: Text(
-                          "IMPS Payment",
-                          style: TextStyle(
-                              color: Colors.black,
-                              fontSize: SizeConfig.blockSizeHorizontal * 3.2,
-                              fontFamily: "Roboto_Regular",
-                              fontWeight: FontWeight.w400),
-                          textAlign: TextAlign.center,
+                GestureDetector(
+                  onDoubleTap: (){},
+                  onTap: (){
+                    Navigator.push(context, MaterialPageRoute(builder: (context)=>IMPSNameAccountList()));
+                  },
+                  child: Container(
+                    height: parentHeight * 0.12,
+                    width: parentWidth * 0.2,
+                    decoration: BoxDecoration(
+                        color: CommonColor.TRANSFER_OPTION_BACKGROUND,
+                        borderRadius: BorderRadius.circular(15)),
+                    child: Column(
+                      children: [
+                        Stack(
+                          alignment: Alignment.center,
+                          children: [
+                            Padding(
+                              padding: EdgeInsets.only(top: parentHeight * 0.015),
+                              child: Image(
+                                  image: AssetImage("assets/images/circle.png")),
+                            ),
+                            Padding(
+                              padding: EdgeInsets.only(top: parentHeight * 0.015),
+                              child: Image(
+                                  image:
+                                      AssetImage("assets/images/imps_icon.png")),
+                            ),
+                          ],
                         ),
-                      ),
-                    ],
+                        Padding(
+                          padding: EdgeInsets.only(top: parentHeight * 0.007),
+                          child: Text(
+                            "IMPS Payment",
+                            style: TextStyle(
+                                color: Colors.black,
+                                fontSize: SizeConfig.blockSizeHorizontal * 3.2,
+                                fontFamily: "Roboto_Regular",
+                                fontWeight: FontWeight.w400),
+                            textAlign: TextAlign.center,
+                          ),
+                        ),
+                      ],
+                    ),
                   ),
                 ),
               ],
