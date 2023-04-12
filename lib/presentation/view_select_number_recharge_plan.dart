@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:scspay/all_dialog/recharge_pay_dialogue.dart';
 import 'package:scspay/all_dialog/select_operator_dialog.dart';
+import 'package:scspay/all_dialog/show_all_circle_state.dart';
 import 'package:scspay/common_file/common_color.dart';
 import 'package:scspay/common_file/size_config.dart';
 import 'package:scspay/presentation/121_made_for_you_offer_list.dart';
+import 'package:sliding_sheet/sliding_sheet.dart';
 
 
 
@@ -311,35 +313,48 @@ class _MobileRechargePlanState extends State<MobileRechargePlan> {
               ),
               Padding(
                 padding: EdgeInsets.only(top: parentHeight*0.02),
-                child: Container(
-                  height: parentHeight*0.045,
-                  width: parentWidth*0.42,
-                  decoration: BoxDecoration(
-                    color: Colors.white,
-                    borderRadius: BorderRadius.circular(50),
-                    border: Border.all(color: Colors.black26)
-                  ),
-                  child: Padding(
-                    padding: EdgeInsets.only(right: parentWidth*0.05),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Container(
-                          width: parentWidth*0.3,
-                          color: Colors.transparent,
-                          child: Center(
-                            child: Text("Maharashtra & Goa",
-                              style: TextStyle(
-                                  fontSize: SizeConfig.blockSizeHorizontal*3.3,
-                                  fontFamily: "Roboto_Regular",
-                                  fontWeight: FontWeight.w400,
-                                  color: CommonColor.BLACK_COLOR
-                              ),),
+                child: GestureDetector(
+                  onDoubleTap: (){},
+                  onTap: (){
+                    showSlidingBottomSheet(context,
+                        builder: (context) => SlidingSheetDialog(
+                          cornerRadius: 20,
+                          snapSpec: SnapSpec(
+                            snappings: [0.4, 0.9]
                           ),
-                        ),
+                          builder: allCircleSheet,
+                        ));
+                  },
+                  child: Container(
+                    height: parentHeight*0.045,
+                    width: parentWidth*0.42,
+                    decoration: BoxDecoration(
+                      color: Colors.white,
+                      borderRadius: BorderRadius.circular(50),
+                      border: Border.all(color: Colors.black26)
+                    ),
+                    child: Padding(
+                      padding: EdgeInsets.only(right: parentWidth*0.05),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Container(
+                            width: parentWidth*0.3,
+                            color: Colors.transparent,
+                            child: Center(
+                              child: Text("Maharashtra & Goa",
+                                style: TextStyle(
+                                    fontSize: SizeConfig.blockSizeHorizontal*3.3,
+                                    fontFamily: "Roboto_Regular",
+                                    fontWeight: FontWeight.w400,
+                                    color: CommonColor.BLACK_COLOR
+                                ),),
+                            ),
+                          ),
 
-                        Icon(Icons.arrow_drop_down_outlined)
-                      ],
+                          Icon(Icons.arrow_drop_down_outlined)
+                        ],
+                      ),
                     ),
                   ),
                 ),
@@ -350,4 +365,449 @@ class _MobileRechargePlanState extends State<MobileRechargePlan> {
       ),
     );
   }
+
+
+  Widget allCircleSheet(context, state) => Material(
+    child: Stack(
+      alignment: Alignment.topRight,
+      children: [
+        Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+
+            Padding(
+              padding: const EdgeInsets.all(20.0),
+              child: Text(
+                "Select your Circle",
+                style: TextStyle(
+                    fontSize: SizeConfig.blockSizeHorizontal * 4.0,
+                    fontWeight: FontWeight.w500,
+                    color: Colors.black,
+                    fontFamily: 'Roboto_Bold'),
+              ),
+            ),
+
+            Padding(
+              padding: EdgeInsets.only(left: SizeConfig.screenWidth*0.05, top: SizeConfig.screenHeight*0.02),
+              child: Text("Asam",
+                style: TextStyle(
+                    fontSize: SizeConfig.blockSizeHorizontal*4.0,
+                    fontFamily: "Roboto_Regular",
+                    fontWeight: FontWeight.w400,
+                    color: CommonColor.BLACK_COLOR
+                ),),
+            ),
+
+            Padding(
+              padding: EdgeInsets.only(top: SizeConfig.screenHeight*0.03),
+              child: Container(
+                height: SizeConfig.screenWidth*0.003,
+                color: CommonColor.TRANSFER_OPTION_BACKGROUND,
+                child: Row(
+                  children: const [
+                    Text("hii",
+                      style: TextStyle(
+                          color: Colors.transparent
+                      ),),
+                  ],
+                ),
+              ),
+            ),
+
+            Padding(
+              padding: EdgeInsets.only(left: SizeConfig.screenWidth*0.05, top: SizeConfig.screenHeight*0.02),
+              child: Text("Asam",
+                style: TextStyle(
+                    fontSize: SizeConfig.blockSizeHorizontal*4.0,
+                    fontFamily: "Roboto_Regular",
+                    fontWeight: FontWeight.w400,
+                    color: CommonColor.BLACK_COLOR
+                ),),
+            ),
+
+            Padding(
+              padding: EdgeInsets.only(top: SizeConfig.screenHeight*0.02),
+              child: Container(
+                height: SizeConfig.screenWidth*0.003,
+                color: CommonColor.TRANSFER_OPTION_BACKGROUND,
+                child: Row(
+                  children: const [
+                    Text("hii",
+                      style: TextStyle(
+                          color: Colors.transparent
+                      ),),
+                  ],
+                ),
+              ),
+            ),
+
+            Padding(
+              padding: EdgeInsets.only(left: SizeConfig.screenWidth*0.05, top: SizeConfig.screenHeight*0.02),
+              child: Text("Asam",
+                style: TextStyle(
+                    fontSize: SizeConfig.blockSizeHorizontal*4.0,
+                    fontFamily: "Roboto_Regular",
+                    fontWeight: FontWeight.w400,
+                    color: CommonColor.BLACK_COLOR
+                ),),
+            ),
+
+            Padding(
+              padding: EdgeInsets.only(top: SizeConfig.screenHeight*0.02),
+              child: Container(
+                height: SizeConfig.screenWidth*0.003,
+                color: CommonColor.TRANSFER_OPTION_BACKGROUND,
+                child: Row(
+                  children: const [
+                    Text("hii",
+                      style: TextStyle(
+                          color: Colors.transparent
+                      ),),
+                  ],
+                ),
+              ),
+            ),
+
+            Padding(
+              padding: EdgeInsets.only(left: SizeConfig.screenWidth*0.05, top: SizeConfig.screenHeight*0.02),
+              child: Text("Asam",
+                style: TextStyle(
+                    fontSize: SizeConfig.blockSizeHorizontal*4.0,
+                    fontFamily: "Roboto_Regular",
+                    fontWeight: FontWeight.w400,
+                    color: CommonColor.BLACK_COLOR
+                ),),
+            ),
+
+            Padding(
+              padding: EdgeInsets.only(top: SizeConfig.screenHeight*0.03),
+              child: Container(
+                height: SizeConfig.screenWidth*0.003,
+                color: CommonColor.TRANSFER_OPTION_BACKGROUND,
+                child: Row(
+                  children: const [
+                    Text("hii",
+                      style: TextStyle(
+                          color: Colors.transparent
+                      ),),
+                  ],
+                ),
+              ),
+            ),
+
+            Padding(
+              padding: EdgeInsets.only(left: SizeConfig.screenWidth*0.05, top: SizeConfig.screenHeight*0.02),
+              child: Text("Asam",
+                style: TextStyle(
+                    fontSize: SizeConfig.blockSizeHorizontal*4.0,
+                    fontFamily: "Roboto_Regular",
+                    fontWeight: FontWeight.w400,
+                    color: CommonColor.BLACK_COLOR
+                ),),
+            ),
+
+            Padding(
+              padding: EdgeInsets.only(top: SizeConfig.screenHeight*0.02),
+              child: Container(
+                height: SizeConfig.screenWidth*0.003,
+                color: CommonColor.TRANSFER_OPTION_BACKGROUND,
+                child: Row(
+                  children: const [
+                    Text("hii",
+                      style: TextStyle(
+                          color: Colors.transparent
+                      ),),
+                  ],
+                ),
+              ),
+            ),
+
+            Padding(
+              padding: EdgeInsets.only(left: SizeConfig.screenWidth*0.05, top: SizeConfig.screenHeight*0.02),
+              child: Text("Asam",
+                style: TextStyle(
+                    fontSize: SizeConfig.blockSizeHorizontal*4.0,
+                    fontFamily: "Roboto_Regular",
+                    fontWeight: FontWeight.w400,
+                    color: CommonColor.BLACK_COLOR
+                ),),
+            ),
+
+            Padding(
+              padding: EdgeInsets.only(top: SizeConfig.screenHeight*0.02),
+              child: Container(
+                height: SizeConfig.screenWidth*0.003,
+                color: CommonColor.TRANSFER_OPTION_BACKGROUND,
+                child: Row(
+                  children: const [
+                    Text("hii",
+                      style: TextStyle(
+                          color: Colors.transparent
+                      ),),
+                  ],
+                ),
+              ),
+            ),
+
+            Padding(
+              padding: EdgeInsets.only(left: SizeConfig.screenWidth*0.05, top: SizeConfig.screenHeight*0.02),
+              child: Text("Asam",
+                style: TextStyle(
+                    fontSize: SizeConfig.blockSizeHorizontal*4.0,
+                    fontFamily: "Roboto_Regular",
+                    fontWeight: FontWeight.w400,
+                    color: CommonColor.BLACK_COLOR
+                ),),
+            ),
+
+            Padding(
+              padding: EdgeInsets.only(top: SizeConfig.screenHeight*0.03),
+              child: Container(
+                height: SizeConfig.screenWidth*0.003,
+                color: CommonColor.TRANSFER_OPTION_BACKGROUND,
+                child: Row(
+                  children: const [
+                    Text("hii",
+                      style: TextStyle(
+                          color: Colors.transparent
+                      ),),
+                  ],
+                ),
+              ),
+            ),
+
+            Padding(
+              padding: EdgeInsets.only(left: SizeConfig.screenWidth*0.05, top: SizeConfig.screenHeight*0.02),
+              child: Text("Asam",
+                style: TextStyle(
+                    fontSize: SizeConfig.blockSizeHorizontal*4.0,
+                    fontFamily: "Roboto_Regular",
+                    fontWeight: FontWeight.w400,
+                    color: CommonColor.BLACK_COLOR
+                ),),
+            ),
+
+            Padding(
+              padding: EdgeInsets.only(top: SizeConfig.screenHeight*0.02),
+              child: Container(
+                height: SizeConfig.screenWidth*0.003,
+                color: CommonColor.TRANSFER_OPTION_BACKGROUND,
+                child: Row(
+                  children: const [
+                    Text("hii",
+                      style: TextStyle(
+                          color: Colors.transparent
+                      ),),
+                  ],
+                ),
+              ),
+            ),
+
+            Padding(
+              padding: EdgeInsets.only(left: SizeConfig.screenWidth*0.05, top: SizeConfig.screenHeight*0.02),
+              child: Text("Asam",
+                style: TextStyle(
+                    fontSize: SizeConfig.blockSizeHorizontal*4.0,
+                    fontFamily: "Roboto_Regular",
+                    fontWeight: FontWeight.w400,
+                    color: CommonColor.BLACK_COLOR
+                ),),
+            ),
+
+            Padding(
+              padding: EdgeInsets.only(top: SizeConfig.screenHeight*0.02),
+              child: Container(
+                height: SizeConfig.screenWidth*0.003,
+                color: CommonColor.TRANSFER_OPTION_BACKGROUND,
+                child: Row(
+                  children: const [
+                    Text("hii",
+                      style: TextStyle(
+                          color: Colors.transparent
+                      ),),
+                  ],
+                ),
+              ),
+            ),
+
+            Padding(
+              padding: EdgeInsets.only(left: SizeConfig.screenWidth*0.05, top: SizeConfig.screenHeight*0.02),
+              child: Text("Asam",
+                style: TextStyle(
+                    fontSize: SizeConfig.blockSizeHorizontal*4.0,
+                    fontFamily: "Roboto_Regular",
+                    fontWeight: FontWeight.w400,
+                    color: CommonColor.BLACK_COLOR
+                ),),
+            ),
+
+            Padding(
+              padding: EdgeInsets.only(top: SizeConfig.screenHeight*0.03),
+              child: Container(
+                height: SizeConfig.screenWidth*0.003,
+                color: CommonColor.TRANSFER_OPTION_BACKGROUND,
+                child: Row(
+                  children: const [
+                    Text("hii",
+                      style: TextStyle(
+                          color: Colors.transparent
+                      ),),
+                  ],
+                ),
+              ),
+            ),
+
+            Padding(
+              padding: EdgeInsets.only(left: SizeConfig.screenWidth*0.05, top: SizeConfig.screenHeight*0.02),
+              child: Text("Asam",
+                style: TextStyle(
+                    fontSize: SizeConfig.blockSizeHorizontal*4.0,
+                    fontFamily: "Roboto_Regular",
+                    fontWeight: FontWeight.w400,
+                    color: CommonColor.BLACK_COLOR
+                ),),
+            ),
+
+            Padding(
+              padding: EdgeInsets.only(top: SizeConfig.screenHeight*0.02),
+              child: Container(
+                height: SizeConfig.screenWidth*0.003,
+                color: CommonColor.TRANSFER_OPTION_BACKGROUND,
+                child: Row(
+                  children: const [
+                    Text("hii",
+                      style: TextStyle(
+                          color: Colors.transparent
+                      ),),
+                  ],
+                ),
+              ),
+            ),
+
+            Padding(
+              padding: EdgeInsets.only(left: SizeConfig.screenWidth*0.05, top: SizeConfig.screenHeight*0.02),
+              child: Text("Asam",
+                style: TextStyle(
+                    fontSize: SizeConfig.blockSizeHorizontal*4.0,
+                    fontFamily: "Roboto_Regular",
+                    fontWeight: FontWeight.w400,
+                    color: CommonColor.BLACK_COLOR
+                ),),
+            ),
+
+            Padding(
+              padding: EdgeInsets.only(top: SizeConfig.screenHeight*0.02),
+              child: Container(
+                height: SizeConfig.screenWidth*0.003,
+                color: CommonColor.TRANSFER_OPTION_BACKGROUND,
+                child: Row(
+                  children: const [
+                    Text("hii",
+                      style: TextStyle(
+                          color: Colors.transparent
+                      ),),
+                  ],
+                ),
+              ),
+            ),
+
+            Padding(
+              padding: EdgeInsets.only(left: SizeConfig.screenWidth*0.05, top: SizeConfig.screenHeight*0.02),
+              child: Text("Asam",
+                style: TextStyle(
+                    fontSize: SizeConfig.blockSizeHorizontal*4.0,
+                    fontFamily: "Roboto_Regular",
+                    fontWeight: FontWeight.w400,
+                    color: CommonColor.BLACK_COLOR
+                ),),
+            ),
+
+            Padding(
+              padding: EdgeInsets.only(top: SizeConfig.screenHeight*0.03),
+              child: Container(
+                height: SizeConfig.screenWidth*0.003,
+                color: CommonColor.TRANSFER_OPTION_BACKGROUND,
+                child: Row(
+                  children: const [
+                    Text("hii",
+                      style: TextStyle(
+                          color: Colors.transparent
+                      ),),
+                  ],
+                ),
+              ),
+            ),
+
+            Padding(
+              padding: EdgeInsets.only(left: SizeConfig.screenWidth*0.05, top: SizeConfig.screenHeight*0.02),
+              child: Text("Asam",
+                style: TextStyle(
+                    fontSize: SizeConfig.blockSizeHorizontal*4.0,
+                    fontFamily: "Roboto_Regular",
+                    fontWeight: FontWeight.w400,
+                    color: CommonColor.BLACK_COLOR
+                ),),
+            ),
+
+            Padding(
+              padding: EdgeInsets.only(top: SizeConfig.screenHeight*0.02),
+              child: Container(
+                height: SizeConfig.screenWidth*0.003,
+                color: CommonColor.TRANSFER_OPTION_BACKGROUND,
+                child: Row(
+                  children: const [
+                    Text("hii",
+                      style: TextStyle(
+                          color: Colors.transparent
+                      ),),
+                  ],
+                ),
+              ),
+            ),
+
+            Padding(
+              padding: EdgeInsets.only(left: SizeConfig.screenWidth*0.05, top: SizeConfig.screenHeight*0.02),
+              child: Text("Asam",
+                style: TextStyle(
+                    fontSize: SizeConfig.blockSizeHorizontal*4.0,
+                    fontFamily: "Roboto_Regular",
+                    fontWeight: FontWeight.w400,
+                    color: CommonColor.BLACK_COLOR
+                ),),
+            ),
+
+            Padding(
+              padding: EdgeInsets.only(top: SizeConfig.screenHeight*0.02),
+              child: Container(
+                height: SizeConfig.screenWidth*0.003,
+                color: CommonColor.TRANSFER_OPTION_BACKGROUND,
+                child: Row(
+                  children: const [
+                    Text("hii",
+                      style: TextStyle(
+                          color: Colors.transparent
+                      ),),
+                  ],
+                ),
+              ),
+            ),
+
+          ],
+        ),
+        Padding(
+          padding: EdgeInsets.all(20.0),
+          child: GestureDetector(
+            onDoubleTap: (){},
+            onTap: (){
+              Navigator.pop(context);
+            },
+            child: Container(
+              color: Colors.transparent,
+                child: Icon(Icons.clear)
+            ),
+          ),
+        )
+      ],
+    ),
+  );
 }

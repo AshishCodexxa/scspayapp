@@ -73,55 +73,175 @@ class _MobileRechargeParentScreenState extends State<MobileRechargeParentScreen>
           Container(
             color: CommonColor.LAYOUT_BACKGROUND_COLOR,
             height: SizeConfig.safeUsedHeight * .88,
-            child: Padding(
-              padding: EdgeInsets.only(top: SizeConfig.screenHeight*0.015),
-              child: Column(
-                children: [
-                  TabBar(
-                      controller: _tabController,
-                      unselectedLabelColor: CommonColor.PAYMENT_SETTING_COLOR,
-                      indicatorSize: TabBarIndicatorSize.label,
-                      isScrollable: false,
-                      indicator: BoxDecoration(
-                          borderRadius: BorderRadius.circular(50),
-                          color: CommonColor.WELCOME_TEXT_COLOR),
-                      tabs: [
-                        Tab(
-                          child: Container(
-                            height: SizeConfig.screenHeight*0.05,
-                            decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(50),
-                                border: Border.all(color: Colors.black12, width: 1)),
-                            child: Align(
-                              alignment: Alignment.center,
-                              child: Text("Prepaid"),
-                            ),
-                          ),
-                        ),
-                        Tab(
-                          child: Container(
-                            height: SizeConfig.screenHeight*0.05,
-                            decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(50),
-                                border: Border.all(color: Colors.black12, width: 1)),
-                            child: Align(
-                              alignment: Alignment.center,
-                              child: Text("Post Paid"),
-                            ),
-                          ),
-                        ),
-                      ]),
-
-                  Expanded(
-                      child: TabBarView(
+            child: Stack(
+              alignment: Alignment.topCenter,
+              children: [
+                Padding(
+                  padding: EdgeInsets.only(top: SizeConfig.screenHeight*0.015),
+                  child: Column(
+                    children: [
+                      TabBar(
                           controller: _tabController,
+                          unselectedLabelColor: CommonColor.PAYMENT_SETTING_COLOR,
+                          indicatorSize: TabBarIndicatorSize.label,
+                          isScrollable: false,
+                          indicator: BoxDecoration(
+                              borderRadius: BorderRadius.circular(50),
+                              color: CommonColor.WELCOME_TEXT_COLOR),
+                          tabs: [
+                            Tab(
+                              child: Container(
+                                height: SizeConfig.screenHeight*0.05,
+                                decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.circular(50),
+                                    border: Border.all(color: Colors.black12, width: 1)),
+                                child: Align(
+                                  alignment: Alignment.center,
+                                  child: Text("Prepaid"),
+                                ),
+                              ),
+                            ),
+                            Tab(
+                              child: Container(
+                                height: SizeConfig.screenHeight*0.05,
+                                decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.circular(50),
+                                    border: Border.all(color: Colors.black12, width: 1)),
+                                child: Align(
+                                  alignment: Alignment.center,
+                                  child: Text("Post Paid"),
+                                ),
+                              ),
+                            ),
+                          ]),
+
+                      Expanded(
+                          child: TabBarView(
+                              controller: _tabController,
+                              children: [
+                                PrepaidMobileNumberScreen(),
+                                PostpaidMobileNumberScreen()
+                              ])
+                      )
+                    ],
+                  ),
+                ),
+                Visibility(
+                  visible: showCancle,
+                  child: Padding(
+                    padding: EdgeInsets.only(top: SizeConfig.screenHeight*0.015, left: SizeConfig.screenWidth*0.03,
+                        right: SizeConfig.screenWidth*0.03),
+                    child: Container(
+                      height: SizeConfig.screenHeight*0.16,
+                      decoration: BoxDecoration(
+                        color: Colors.white,
+                        borderRadius:BorderRadius.circular(10)
+                      ),
+                      child: Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Column(
                           children: [
-                            PrepaidMobileNumberScreen(),
-                            PostpaidMobileNumberScreen()
-                          ])
-                  )
-                ],
-              ),
+
+                            Padding(
+                              padding: EdgeInsets.only(top: SizeConfig.screenHeight*0.015, left: SizeConfig.screenWidth*0.03,
+                                  right: SizeConfig.screenWidth*0.03),
+                              child: Row(
+                                mainAxisAlignment: MainAxisAlignment.start,
+                                children: [
+                                  Text("Contact",
+                                    style: TextStyle(
+                                        fontSize: SizeConfig.blockSizeHorizontal*4.0,
+                                        fontFamily: "Roboto_Medium",
+                                        fontWeight: FontWeight.w500,
+                                        color: CommonColor.BLACK_COLOR
+                                    ),),
+                                ],
+                              ),
+                            ),
+
+                            Container(
+                              height: SizeConfig.screenHeight*0.1,
+                              color: Colors.transparent,
+                              child: ListView.builder(
+                                  itemCount: 1,
+                                  padding: EdgeInsets.zero,
+                                  itemBuilder: (BuildContext context, int index) {
+                                    return Padding(
+                                      padding: EdgeInsets.only(top: SizeConfig.screenHeight*0.02,
+                                          left: SizeConfig.screenWidth*0.05, right: SizeConfig.screenWidth*0.05),
+                                      child: Padding(
+                                        padding: EdgeInsets.only(left: SizeConfig.screenWidth*0.03),
+                                        child: Row(
+                                          crossAxisAlignment: CrossAxisAlignment.center,
+                                          children: [
+                                            Container(
+                                              height: SizeConfig.screenHeight*0.046,
+                                              width: SizeConfig.screenWidth*0.097,
+                                              decoration: const BoxDecoration(
+                                                color: CommonColor.BANK_CARD_BACKGROUND_COLOR,
+                                                shape: BoxShape.circle,
+                                              ),
+                                              child: const Image(image: AssetImage("assets/images/contact_profile.png"),
+                                              ),
+                                            ),
+                                            Padding(
+                                              padding: EdgeInsets.only(left: SizeConfig.screenWidth*0.03, top: SizeConfig.screenHeight*0.0),
+                                              child: Column(
+                                                crossAxisAlignment: CrossAxisAlignment.start,
+                                                mainAxisAlignment: MainAxisAlignment.center,
+                                                children: [
+                                                  Container(
+                                                    color: Colors.transparent,
+                                                    width: SizeConfig.screenWidth*0.6,
+                                                    child: Row(
+                                                      mainAxisAlignment: MainAxisAlignment.start,
+                                                      children: [
+                                                        Container(
+                                                          color: Colors.transparent,
+                                                          width: SizeConfig.screenWidth*0.52,
+                                                          child: Text("New Number",
+                                                            style: TextStyle(
+                                                                fontSize: SizeConfig.blockSizeHorizontal*4.0,
+                                                                fontFamily: "Roboto_Regular",
+                                                                fontWeight: FontWeight.w400,
+                                                                color: CommonColor.BLACK_COLOR
+                                                            ),),
+                                                        ),
+                                                      ],
+                                                    ),
+                                                  ),
+                                                  Padding(
+                                                    padding: EdgeInsets.only(top: SizeConfig.screenHeight*0.006),
+                                                    child:  Container(
+                                                      color: Colors.transparent,
+                                                      width: SizeConfig.screenWidth*0.6,
+                                                      child: Text("9586472564",
+                                                        style: TextStyle(
+                                                            fontSize: SizeConfig.blockSizeHorizontal*3.0,
+                                                            fontFamily: "Roboto_Regular",
+                                                            fontWeight: FontWeight.w400,
+                                                            color: CommonColor.BLACK_COLOR
+                                                        ),),
+                                                    ),
+                                                  ),
+                                                ],
+                                              ),
+                                            ),
+                                          ],
+                                        ),
+                                      ),
+                                    );
+                                  }
+                              ),
+                            ),
+
+                          ],
+                        ),
+                      ),
+                    ),
+                  ),
+                )
+              ],
             )
           ),
         ],
@@ -279,67 +399,4 @@ class _MobileRechargeParentScreenState extends State<MobileRechargeParentScreen>
     );
   }
 
-  // Widget getTwoTab(double parentHeight, double parentWidth){
-  //   return Container(
-  //     height: SizeConfig.safeUsedHeight * .88,
-  //     child: ListView(
-  //       shrinkWrap: true,
-  //         padding: EdgeInsets.zero,
-  //         children: [
-  //           // give the tab bar a height [can change hheight to preferred height]
-  //           TabBar(
-  //               controller: _tabController,
-  //               unselectedLabelColor: Colors.redAccent,
-  //               indicatorSize: TabBarIndicatorSize.label,
-  //               indicator: BoxDecoration(
-  //                   borderRadius: BorderRadius.circular(50),
-  //                   color: Colors.redAccent),
-  //               tabs: [
-  //                 Tab(
-  //                   child: Container(
-  //                     decoration: BoxDecoration(
-  //                         borderRadius: BorderRadius.circular(50),
-  //                         border: Border.all(color: Colors.redAccent, width: 1)),
-  //                     child: Align(
-  //                       alignment: Alignment.center,
-  //                       child: Text("APPS"),
-  //                     ),
-  //                   ),
-  //                 ),
-  //                 Tab(
-  //                   child: Container(
-  //                     decoration: BoxDecoration(
-  //                         borderRadius: BorderRadius.circular(50),
-  //                         border: Border.all(color: Colors.redAccent, width: 1)),
-  //                     child: Align(
-  //                       alignment: Alignment.center,
-  //                       child: Text("MOVIES"),
-  //                     ),
-  //                   ),
-  //                 ),
-  //                 Tab(
-  //                   child: Container(
-  //                     decoration: BoxDecoration(
-  //                         borderRadius: BorderRadius.circular(50),
-  //                         border: Border.all(color: Colors.redAccent, width: 1)),
-  //                     child: Align(
-  //                       alignment: Alignment.center,
-  //                       child: Text("GAMES"),
-  //                     ),
-  //                   ),
-  //                 ),
-  //               ]),
-  //           // tab bar view here
-  //           Expanded(
-  //               child: TabBarView(
-  //                   controller: _tabController,
-  //                   children: [
-  //                 Icon(Icons.apps),
-  //                 Icon(Icons.movie),
-  //                 Icon(Icons.games),
-  //               ])
-  //           )
-  //         ]),
-  //   );
-  // }
 }
