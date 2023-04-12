@@ -44,7 +44,8 @@ class _UpiPinSuccessState extends State<UpiPinSuccess> {
                   )
                 ],
               )
-              : GestureDetector(
+              : widget.comeFrom == '2' ?
+              GestureDetector(
                 onDoubleTap: (){},
                 onTap: (){
                   Navigator.push(context, MaterialPageRoute(builder: (context)=>PaymentTransactionInfo()));
@@ -61,7 +62,45 @@ class _UpiPinSuccessState extends State<UpiPinSuccess> {
                     ],
                   ),
                 ),
-              ),
+              ) :
+              widget.comeFrom == '3' ?
+              GestureDetector(
+                onDoubleTap: (){},
+                onTap: (){
+                  Navigator.push(context, MaterialPageRoute(builder: (context)=>PaymentTransactionInfo()));
+                },
+                child: Container(
+                  child: Stack(
+                    alignment: Alignment.center,
+                    children: [
+                      Image(image: AssetImage("assets/images/recharge_success.png"),),
+                      Padding(
+                        padding: EdgeInsets.only(bottom: SizeConfig.screenHeight*0.057),
+                        child: Image(image: AssetImage("assets/images/recharge_tick.png"),),
+                      )
+                    ],
+                  ),
+                ),
+              ) :
+              GestureDetector(
+                onDoubleTap: (){},
+                onTap: (){
+                  Navigator.push(context, MaterialPageRoute(builder: (context)=>PaymentTransactionInfo()));
+                },
+                child: Container(
+                  child: Stack(
+                    alignment: Alignment.center,
+                    children: [
+                      Image(image: AssetImage("assets/images/payment_done.png"),),
+                      Padding(
+                        padding: EdgeInsets.only(bottom: SizeConfig.screenHeight*0.057),
+                        child: Image(image: AssetImage("assets/images/upi_pin_tick.png"),),
+                      )
+                    ],
+                  ),
+                ),
+              )
+
             )
           ),
 

@@ -311,7 +311,7 @@ class _UpiPinScreenState extends State<UpiPinScreen> {
             child: GestureDetector(
               onDoubleTap: () {},
               onTap: () {
-                Navigator.push(context, MaterialPageRoute(builder: (context)=>UpiPinConfirmScreen()));
+                Navigator.push(context, MaterialPageRoute(builder: (context)=>UpiPinConfirmScreen(comesFrom: '',)));
               },
               child: Container(
                 height: SizeConfig.screenHeight * 0.06,

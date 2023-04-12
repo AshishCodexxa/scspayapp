@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:scspay/common_file/common_color.dart';
 import 'package:scspay/common_file/size_config.dart';
 import 'package:scspay/presentation/imps_name_account_list.dart';
+import 'package:scspay/presentation/mobile_recharge_parent_screen.dart';
 import 'package:scspay/presentation/neft_name_account_list.dart';
 import 'package:scspay/presentation/pay_amount_notes_screen.dart';
 import 'package:scspay/presentation/phone_number_list.dart';
@@ -372,38 +373,44 @@ class _HomeScreenState extends State<HomeScreen> {
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        Container(
-                          height: parentHeight * 0.12,
-                          width: parentWidth * 0.2,
-                          decoration: BoxDecoration(
-                              color: Colors.transparent,
-                              borderRadius: BorderRadius.circular(15)),
-                          child: Column(
-                            children: [
-                              Stack(
-                                alignment: Alignment.center,
-                                children: [
-                                  Image(
-                                      image: AssetImage("assets/images/circle.png"),
-                                  color: Colors.black12,),
-                                  Image(
-                                      image:
-                                      AssetImage("assets/images/mobile.png")),
-                                ],
-                              ),
-                              Padding(
-                                padding: EdgeInsets.only(top: parentHeight * 0.007),
-                                child: Text(
-                                  "Mobile Recharge",
-                                  style: TextStyle(
-                                      color: Colors.black,
-                                      fontSize: SizeConfig.blockSizeHorizontal * 3.2,
-                                      fontFamily: "Roboto_Regular",
-                                      fontWeight: FontWeight.w400),
-                                  textAlign: TextAlign.center,
+                        GestureDetector(
+                          onDoubleTap: (){},
+                          onTap: (){
+                            Navigator.push(context, MaterialPageRoute(builder: (context) => MobileRechargeParentScreen()));
+                          },
+                          child: Container(
+                            height: parentHeight * 0.12,
+                            width: parentWidth * 0.2,
+                            decoration: BoxDecoration(
+                                color: Colors.transparent,
+                                borderRadius: BorderRadius.circular(15)),
+                            child: Column(
+                              children: [
+                                Stack(
+                                  alignment: Alignment.center,
+                                  children: [
+                                    Image(
+                                        image: AssetImage("assets/images/circle.png"),
+                                    color: Colors.black12,),
+                                    Image(
+                                        image:
+                                        AssetImage("assets/images/mobile.png")),
+                                  ],
                                 ),
-                              ),
-                            ],
+                                Padding(
+                                  padding: EdgeInsets.only(top: parentHeight * 0.007),
+                                  child: Text(
+                                    "Mobile Recharge",
+                                    style: TextStyle(
+                                        color: Colors.black,
+                                        fontSize: SizeConfig.blockSizeHorizontal * 3.2,
+                                        fontFamily: "Roboto_Regular",
+                                        fontWeight: FontWeight.w400),
+                                    textAlign: TextAlign.center,
+                                  ),
+                                ),
+                              ],
+                            ),
                           ),
                         ),
                         Container(

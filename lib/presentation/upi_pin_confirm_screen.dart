@@ -5,7 +5,10 @@ import 'package:scspay/presentation/upi_pin_success.dart';
 
 
 class UpiPinConfirmScreen extends StatefulWidget {
-  const UpiPinConfirmScreen({Key? key}) : super(key: key);
+
+  final String comesFrom;
+
+  const UpiPinConfirmScreen({Key? key, required this.comesFrom}) : super(key: key);
 
   @override
   State<UpiPinConfirmScreen> createState() => _UpiPinConfirmScreenState();
@@ -312,7 +315,7 @@ class _UpiPinConfirmScreenState extends State<UpiPinConfirmScreen> {
             child: GestureDetector(
               onDoubleTap: () {},
               onTap: () {
-                Navigator.push(context, MaterialPageRoute(builder: (context)=>UpiPinSuccess(comeFrom: '1',)));
+                Navigator.push(context, MaterialPageRoute(builder: (context)=>UpiPinSuccess(comeFrom: widget.comesFrom,)));
               },
               child: Container(
                 height: SizeConfig.screenHeight * 0.06,
