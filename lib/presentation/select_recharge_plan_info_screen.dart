@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:scspay/all_dialog/recharge_pay_dialogue.dart';
 import 'package:scspay/common_file/common_color.dart';
 import 'package:scspay/common_file/size_config.dart';
+import 'package:scspay/presentation/post_paid_bill_screen.dart';
 
 
 
@@ -277,7 +278,7 @@ class _SelectRechargePlanInfoState extends State<SelectRechargePlanInfo> {
                 child: GestureDetector(
                   onDoubleTap: (){},
                   onTap: (){
-                    Navigator.push(context, MaterialPageRoute(builder: (context)=>const SelectRechargePlanInfo()));
+                    Navigator.push(context, MaterialPageRoute(builder: (context)=>const PostPaidBillScreen()));
                   },
                   child: Container(
                       height: SizeConfig.screenHeight*0.12,

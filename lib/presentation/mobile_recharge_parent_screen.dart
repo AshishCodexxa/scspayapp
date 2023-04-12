@@ -2,6 +2,7 @@ import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:scspay/common_file/common_color.dart';
 import 'package:scspay/common_file/size_config.dart';
+import 'package:scspay/presentation/post_paid_mobile_number_screen.dart';
 import 'package:scspay/presentation/pre_paid_mobile_number_screen.dart';
 
 
@@ -116,7 +117,7 @@ class _MobileRechargeParentScreenState extends State<MobileRechargeParentScreen>
                           controller: _tabController,
                           children: [
                             PrepaidMobileNumberScreen(),
-                            Icon(Icons.games),
+                            PostpaidMobileNumberScreen()
                           ])
                   )
                 ],
@@ -259,7 +260,7 @@ class _MobileRechargeParentScreenState extends State<MobileRechargeParentScreen>
                         enabledBorder: InputBorder.none,
                         errorBorder: InputBorder.none,
                         disabledBorder: InputBorder.none,
-                        hintText: focusText == true ? "" : "Search by Product Name",
+                        hintText: focusText == true ? "" : "Search by Number or Name",
                         hintStyle: TextStyle(
                             color: Colors.black26,
                             fontFamily: 'Roboto_Regular',
