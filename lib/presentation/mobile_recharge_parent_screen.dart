@@ -320,8 +320,8 @@ class _MobileRechargeParentScreenState extends State<MobileRechargeParentScreen>
           Expanded(
             child: Padding(
               padding: EdgeInsets.only(
-                  top: parentHeight * 0.055,
-                  bottom: parentHeight * 0.015,
+                  top: parentHeight * 0.05,
+                  bottom: parentHeight * 0.012,
                   left: parentWidth * 0.05,
                   right: parentWidth * 0.04),
               child: Container(
@@ -350,7 +350,7 @@ class _MobileRechargeParentScreenState extends State<MobileRechargeParentScreen>
                     decoration: InputDecoration(
                         prefixIcon: const Icon(
                           Icons.search_outlined,
-                          color: CommonColor.APP_BAR_COLOR,
+                          color: Colors.black26,
                         ),
                         suffixIcon: Visibility(
                             visible: showCancle || _searchFocus.hasFocus,
