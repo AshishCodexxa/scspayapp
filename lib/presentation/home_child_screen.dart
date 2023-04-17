@@ -10,6 +10,7 @@ import 'package:scspay/presentation/Insurance/insurance_list_screen.dart';
 import 'package:scspay/presentation/Loan_Emi/loan_list_screen.dart';
 import 'package:scspay/presentation/Municipal_Tax/municipal_tax_list.dart';
 import 'package:scspay/presentation/Water_Bill/water_bill_list_screen.dart';
+import 'package:scspay/presentation/enter_upi_pin_screen.dart';
 import 'package:scspay/presentation/fashtag_recharge_bank_list.dart';
 import 'package:scspay/presentation/imps_name_account_list.dart';
 import 'package:scspay/presentation/mobile_recharge_parent_screen.dart';
@@ -964,46 +965,52 @@ class _HomeScreenState extends State<HomeScreen> {
 
           Padding(
             padding: EdgeInsets.only(top: parentHeight*0.03),
-            child: Container(
-              height: parentHeight*0.07,
-              decoration: BoxDecoration(
-                color: Colors.white,
-                borderRadius: BorderRadius.circular(10)
-              ),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Row(
-                    children: [
-                      Padding(
-                        padding: EdgeInsets.only(left: parentWidth*0.05),
-                        child: Image(image: AssetImage("assets/images/imps_icon.png"),
-                        color: CommonColor.WELCOME_TEXT_COLOR,),
-                      ),
-                      Padding(
-                        padding: EdgeInsets.only(left: parentWidth*0.05),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.start,
-                          children: [
-                            Text(
-                              "Check Balance",
-                              style: TextStyle(
-                                  fontSize: SizeConfig.blockSizeHorizontal * 4.0,
-                                  fontWeight: FontWeight.w400,
-                                  color: Colors.black,
-                                  fontFamily: 'Roboto_Regular'),
-                              textAlign: TextAlign.center,
-                            ),
-                          ],
+            child: GestureDetector(
+              onDoubleTap: (){},
+              onTap: (){
+                Navigator.push(context, MaterialPageRoute(builder: (context)=>EnterUpiPinScreen(comeFrom: "1",)));
+              },
+              child: Container(
+                height: parentHeight*0.07,
+                decoration: BoxDecoration(
+                  color: Colors.white,
+                  borderRadius: BorderRadius.circular(10)
+                ),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Row(
+                      children: [
+                        Padding(
+                          padding: EdgeInsets.only(left: parentWidth*0.05),
+                          child: Image(image: AssetImage("assets/images/imps_icon.png"),
+                          color: CommonColor.WELCOME_TEXT_COLOR,),
                         ),
-                      ),
-                    ],
-                  ),
-                  Padding(
-                    padding: EdgeInsets.only(right: parentWidth*0.05),
-                    child: Icon(Icons.arrow_forward_ios),
-                  )
-                ],
+                        Padding(
+                          padding: EdgeInsets.only(left: parentWidth*0.05),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.start,
+                            children: [
+                              Text(
+                                "Check Balance",
+                                style: TextStyle(
+                                    fontSize: SizeConfig.blockSizeHorizontal * 4.0,
+                                    fontWeight: FontWeight.w400,
+                                    color: Colors.black,
+                                    fontFamily: 'Roboto_Regular'),
+                                textAlign: TextAlign.center,
+                              ),
+                            ],
+                          ),
+                        ),
+                      ],
+                    ),
+                    Padding(
+                      padding: EdgeInsets.only(right: parentWidth*0.05),
+                      child: Icon(Icons.arrow_forward_ios),
+                    )
+                  ],
+                ),
               ),
             ),
           )
