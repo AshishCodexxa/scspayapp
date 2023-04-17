@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:scspay/common_file/common_color.dart';
 import 'package:scspay/common_file/size_config.dart';
 import 'package:scspay/presentation/Gas_Cylinder/gas_cylinder_provider_screen.dart';
+import 'package:scspay/presentation/Gas_Cylinder/pipeline_gas_booking_child_screen.dart';
 
 
 
@@ -91,8 +92,8 @@ class _GasCylinderProviderState extends State<GasCylinderProvider>  with SingleT
                         child: TabBarView(
                             controller: _tabController,
                             children: [
-                              GasCylinderChildProvider()
-                              // PostpaidMobileNumberScreen()
+                              GasCylinderChildProvider(),
+                              PipeLineGasChildScreen()
                             ])
                     )
                   ],
