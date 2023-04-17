@@ -2,17 +2,18 @@ import 'package:flutter/material.dart';
 import 'package:scspay/common_file/common_color.dart';
 import 'package:scspay/common_file/size_config.dart';
 import 'package:scspay/presentation/Insurance/insurance_details_fill_screen.dart';
+import 'package:scspay/presentation/Loan_Emi/loan_fill_details.dart';
 
 
 
-class InsuranceTaxListScreen extends StatefulWidget {
-  const InsuranceTaxListScreen({Key? key}) : super(key: key);
+class LoanListScreen extends StatefulWidget {
+  const LoanListScreen({Key? key}) : super(key: key);
 
   @override
-  State<InsuranceTaxListScreen> createState() => _InsuranceTaxListScreenState();
+  State<LoanListScreen> createState() => _LoanListScreenState();
 }
 
-class _InsuranceTaxListScreenState extends State<InsuranceTaxListScreen> {
+class _LoanListScreenState extends State<LoanListScreen> {
 
 
 
@@ -108,7 +109,7 @@ class _InsuranceTaxListScreenState extends State<InsuranceTaxListScreen> {
           ),
           Padding(
             padding: EdgeInsets.only(left: parentHeight * 0.01),
-            child: Text("Insurance Tax",
+            child: Text("Loan",
               style: TextStyle(
                   fontSize: SizeConfig.blockSizeHorizontal*6.0,
                   fontFamily: "Roboto_Medium",
@@ -221,7 +222,7 @@ class _InsuranceTaxListScreenState extends State<InsuranceTaxListScreen> {
                         enabledBorder: InputBorder.none,
                         errorBorder: InputBorder.none,
                         disabledBorder: InputBorder.none,
-                        hintText: focusText == true ? "" : "Search by Insurance Provider",
+                        hintText: focusText == true ? "" : "Search by Lender",
                         hintStyle: TextStyle(
                             color: Colors.black26,
                             fontFamily: 'Roboto_Regular',
@@ -263,7 +264,7 @@ class _InsuranceTaxListScreenState extends State<InsuranceTaxListScreen> {
                     child: GestureDetector(
                       onDoubleTap: (){},
                       onTap: (){
-                        Navigator.push(context, MaterialPageRoute(builder: (context)=>InsuranceDetailsFillScreen()));
+                        Navigator.push(context, MaterialPageRoute(builder: (context)=>LoanDetailsFillScreen()));
                       },
                       child: Container(
                         color: Colors.transparent,
@@ -295,7 +296,7 @@ class _InsuranceTaxListScreenState extends State<InsuranceTaxListScreen> {
                                     width: SizeConfig.screenWidth*0.65,
                                     color: Colors.transparent,
                                     child: Text(
-                                        "Life Insurance Corporation",
+                                        "Ring",
                                         style: TextStyle(
                                             fontSize:
                                             SizeConfig.blockSizeHorizontal * 4.0,
