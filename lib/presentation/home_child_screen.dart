@@ -4,7 +4,7 @@ import 'package:scspay/common_file/size_config.dart';
 import 'package:scspay/presentation/DTH/select_provider_screen.dart';
 import 'package:scspay/presentation/ElectricityBill/electricity_bill_list_screen.dart';
 import 'package:scspay/presentation/Gas_Cylinder/gas_cylinder_provider_parent_Screen.dart';
-import 'package:scspay/presentation/WaterBill/water_bill_list_screen.dart';
+import 'package:scspay/presentation/Water_Bill/water_bill_list_screen.dart';
 import 'package:scspay/presentation/fashtag_recharge_bank_list.dart';
 import 'package:scspay/presentation/imps_name_account_list.dart';
 import 'package:scspay/presentation/mobile_recharge_parent_screen.dart';

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:scspay/common_file/common_color.dart';
 import 'package:scspay/common_file/size_config.dart';
-import 'package:scspay/presentation/WaterBill/customer_number_screen.dart';
+import 'package:scspay/presentation/Water_Bill/customer_number_screen.dart';
 
 
 
