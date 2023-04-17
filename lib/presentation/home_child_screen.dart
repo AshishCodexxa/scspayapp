@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:scspay/common_file/common_color.dart';
 import 'package:scspay/common_file/size_config.dart';
+import 'package:scspay/presentation/BSNL_Bill/bsnl_link_account_screen.dart';
 import 'package:scspay/presentation/DTH/select_provider_screen.dart';
 import 'package:scspay/presentation/ElectricityBill/electricity_bill_list_screen.dart';
 import 'package:scspay/presentation/Gas_Cylinder/gas_cylinder_provider_parent_Screen.dart';
@@ -701,38 +702,44 @@ class _HomeScreenState extends State<HomeScreen> {
                             ),
                           ),
                         ),
-                        Container(
-                          height: parentHeight * 0.12,
-                          width: parentWidth * 0.2,
-                          decoration: BoxDecoration(
-                              color: Colors.transparent,
-                              borderRadius: BorderRadius.circular(15)),
-                          child: Column(
-                            children: [
-                              Stack(
-                                alignment: Alignment.center,
-                                children: [
-                                  Image(
-                                    image: AssetImage("assets/images/circle.png"),
-                                    color: Colors.black12,),
-                                  Image(
-                                      image:
-                                      AssetImage("assets/images/water_bill.png")),
-                                ],
-                              ),
-                              Padding(
-                                padding: EdgeInsets.only(top: parentHeight * 0.007),
-                                child: Text(
-                                  "BSNL Bill",
-                                  style: TextStyle(
-                                      color: Colors.black,
-                                      fontSize: SizeConfig.blockSizeHorizontal * 3.2,
-                                      fontFamily: "Roboto_Regular",
-                                      fontWeight: FontWeight.w400),
-                                  textAlign: TextAlign.center,
+                        GestureDetector(
+                          onDoubleTap: (){},
+                          onTap: (){
+                            Navigator.push(context, MaterialPageRoute(builder: (context)=>BSNLLinkAccountScreen()));
+                          },
+                          child: Container(
+                            height: parentHeight * 0.12,
+                            width: parentWidth * 0.2,
+                            decoration: BoxDecoration(
+                                color: Colors.transparent,
+                                borderRadius: BorderRadius.circular(15)),
+                            child: Column(
+                              children: [
+                                Stack(
+                                  alignment: Alignment.center,
+                                  children: [
+                                    Image(
+                                      image: AssetImage("assets/images/circle.png"),
+                                      color: Colors.black12,),
+                                    Image(
+                                        image:
+                                        AssetImage("assets/images/water_bill.png")),
+                                  ],
                                 ),
-                              ),
-                            ],
+                                Padding(
+                                  padding: EdgeInsets.only(top: parentHeight * 0.007),
+                                  child: Text(
+                                    "BSNL Bill",
+                                    style: TextStyle(
+                                        color: Colors.black,
+                                        fontSize: SizeConfig.blockSizeHorizontal * 3.2,
+                                        fontFamily: "Roboto_Regular",
+                                        fontWeight: FontWeight.w400),
+                                    textAlign: TextAlign.center,
+                                  ),
+                                ),
+                              ],
+                            ),
                           ),
                         ),
                       ],
