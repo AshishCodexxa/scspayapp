@@ -15,15 +15,46 @@ class HistoryScreen extends StatefulWidget {
 }
 
 class _HistoryScreenState extends State<HistoryScreen> {
+
+
+  bool showCancle = false;
+  bool showSearch = false;
+  bool focusText = false;
+  TextEditingController searchController = TextEditingController();
+  final _searchFocus = FocusNode();
+
+  removeSearch() {
+    if (searchController.text.trim().length > 0) {
+      if (mounted) {
+        setState(() {
+          showCancle = true;
+          _searchFocus.hasFocus;
+        });
+      }
+    } else {
+      if (mounted) {
+        setState(() {
+          showCancle = false;
+          _searchFocus.hasFocus;
+        });
+      }
+    }
+  }
+
+
+
+
   @override
   Widget build(BuildContext context) {
     SizeConfig().init(context);
     return Scaffold(
-      body: Column(
+      body: ListView(
+        shrinkWrap: true,
+        padding: EdgeInsets.zero,
         children: [
 
           Container(
-            height: SizeConfig.screenHeight*0.05,
+            height: SizeConfig.screenHeight*0.07,
             decoration: BoxDecoration(
               color: Colors.white,
               boxShadow: <BoxShadow>[
@@ -34,7 +65,7 @@ class _HistoryScreenState extends State<HistoryScreen> {
                     offset: const Offset(2, 6))
               ],
             ),
-            child: Padding(
+            child: showSearch == false ? Padding(
               padding: EdgeInsets.only(left: SizeConfig.screenWidth*0.03, right: SizeConfig.screenHeight*0.03),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -48,14 +79,29 @@ class _HistoryScreenState extends State<HistoryScreen> {
                         color: CommonColor.BLACK_COLOR),
                     textAlign: TextAlign.center,
                   ),
-                  Icon(Icons.search)
+                  GestureDetector(
+                    onDoubleTap: (){},
+                    onTap: (){
+                      if(mounted){
+                        setState(() {
+                          showSearch = !showSearch;
+                        });
+                      }
+                    },
+                    child: Container(
+                      color: Colors.transparent,
+                        child: Icon(Icons.search)
+                    ),
+                  )
                 ],
               ),
-            ),
+            ) :
+            getSearchLayout(SizeConfig.screenHeight, SizeConfig.screenWidth),
           ),
 
           Container(
-            height: SizeConfig.screenHeight*0.75,
+            height: SizeConfig.screenHeight*0.73,
+            color: Colors.transparent,
             child: ListView.builder(
                 itemCount: 20,
                 scrollDirection: Axis.vertical,
@@ -166,6 +212,110 @@ class _HistoryScreenState extends State<HistoryScreen> {
             ),
           )
 
+        ],
+      ),
+    );
+  }
+
+  Widget getSearchLayout(double parentHeight, double parentWidth) {
+    return Visibility(
+      visible: showSearch,
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          Padding(
+            padding: EdgeInsets.only(top: parentHeight*0.0, left: parentWidth*0.03),
+            child: GestureDetector(
+              onDoubleTap: (){},
+              onTap: (){
+                if(mounted){
+                  setState(() {
+                    showSearch = !showSearch;
+                  });
+                }
+              },
+              child: Container(
+                  color: Colors.transparent,
+                  child: Icon(Icons.arrow_back_ios_new)),
+            ),
+          ),
+          Expanded(
+            child: Padding(
+              padding: EdgeInsets.only(
+                  top: parentHeight * 0.00,
+                  bottom: parentHeight * 0.012,
+                  left: parentWidth * 0.05,
+                  right: parentWidth * 0.04),
+              child: Container(
+                  decoration: BoxDecoration(
+                      color: CommonColor.LAYOUT_BACKGROUND_COLOR,
+                      border: Border.all(color: CommonColor.WHITE_COLOR, width: 3.0),
+                      borderRadius: BorderRadius.circular(10)),
+                  child: TextFormField(
+                    controller: searchController,
+                    focusNode: _searchFocus,
+                    onTap: () {
+                      if (mounted) {
+                        setState(() {
+                          focusText = true;
+                        });
+                      }
+                    },
+                    onFieldSubmitted: (term) {
+                      print("searchuser");
+                      if (mounted) {
+                        setState(() {
+                          showCancle = false;
+                        });
+                      }
+                    },
+                    decoration: InputDecoration(
+                        prefixIcon: const Icon(
+                          Icons.search_outlined,
+                          color: Colors.black26,
+                        ),
+                        suffixIcon: Visibility(
+                            visible: showCancle || _searchFocus.hasFocus,
+                            child: GestureDetector(
+                              onDoubleTap: () {},
+                              onTap: () {
+                                if (mounted) {
+                                  setState(() {
+                                    searchController.clear();
+                                    if (mounted) {
+                                      setState(() {
+                                        focusText = false;
+                                        _searchFocus.unfocus();
+                                      });
+                                    }
+                                  });
+                                }
+                              },
+                              child: Container(
+                                  color: Colors.transparent,
+                                  child: const Icon(
+                                    Icons.clear,
+                                    color: Colors.red,
+                                  )),
+                            )),
+                        focusedBorder: InputBorder.none,
+                        enabledBorder: InputBorder.none,
+                        errorBorder: InputBorder.none,
+                        disabledBorder: InputBorder.none,
+                        hintText: focusText == true ? "" : "Search by biller",
+                        hintStyle: TextStyle(
+                            color: Colors.black26,
+                            fontFamily: 'Roboto_Regular',
+                            fontWeight: FontWeight.w400,
+                            fontSize: SizeConfig.blockSizeHorizontal * 3.5)),
+                    style: TextStyle(
+                        color: CommonColor.BLACK_COLOR,
+                        fontFamily: 'Roboto_Regular',
+                        fontWeight: FontWeight.w400,
+                        fontSize: SizeConfig.blockSizeHorizontal * 4.0),
+                  )),
+            ),
+          ),
         ],
       ),
     );
