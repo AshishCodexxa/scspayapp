@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:scspay/common_file/common_color.dart';
 import 'package:scspay/common_file/size_config.dart';
+import 'package:scspay/presentation/check_balance_screen.dart';
 import 'package:scspay/presentation/upi_pin_success.dart';
 
 
@@ -311,7 +312,9 @@ class _EnterUpiPinScreenState extends State<EnterUpiPinScreen> {
               onTap: () {
                 widget.comeFrom == "1" ?
                 Navigator.push(context, MaterialPageRoute(builder: (context)=>UpiPinSuccess(comeFrom: '2',)))
-                :Navigator.push(context, MaterialPageRoute(builder: (context)=>UpiPinSuccess(comeFrom: '2',)));
+                :  widget.comeFrom == "2" ?
+                Navigator.push(context, MaterialPageRoute(builder: (context)=>CheckBalance())) :
+                Navigator.push(context, MaterialPageRoute(builder: (context)=>CheckBalance()));
               },
               child: Container(
                 height: SizeConfig.screenHeight * 0.06,

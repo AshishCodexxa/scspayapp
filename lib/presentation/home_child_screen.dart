@@ -52,10 +52,11 @@ class _HomeScreenState extends State<HomeScreen> {
                 GestureDetector(
                   onDoubleTap: (){},
                   onTap: (){
-                    Navigator.push(context, MaterialPageRoute(builder: (context)=>TransferFromQRScan()));
+                    Navigator.push(context, MaterialPageRoute(builder: (context)=>const TransferFromQRScan()));
                   },
                   child: Container(
-                    child: Image(
+                    color: Colors.transparent,
+                    child: const Image(
                       image: AssetImage("assets/images/home_pic.png"),
                     ),
                   ),
@@ -71,7 +72,7 @@ class _HomeScreenState extends State<HomeScreen> {
             child: GestureDetector(
               onDoubleTap: () {},
               onTap: () {
-                Navigator.push(context, MaterialPageRoute(builder: (context)=>QRScanningScreen()));
+                Navigator.push(context, MaterialPageRoute(builder: (context)=>const QRScanningScreen()));
               },
               child: Container(
                 height: SizeConfig.screenHeight * 0.06,
@@ -84,7 +85,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     Padding(
                       padding:
                           EdgeInsets.only(right: SizeConfig.screenWidth * 0.03),
-                      child: Image(
+                      child: const Image(
                         image: AssetImage("assets/images/scanner_img.png"),
                         color: Colors.white,
                       ),
@@ -136,7 +137,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 GestureDetector(
                   onDoubleTap: (){},
                   onTap: (){
-                    Navigator.push(context, MaterialPageRoute(builder: (context)=>PhoneNumberScreen()));
+                    Navigator.push(context, MaterialPageRoute(builder: (context)=>const PhoneNumberScreen()));
                   },
                   child: Container(
                     height: parentHeight * 0.12,
@@ -151,12 +152,12 @@ class _HomeScreenState extends State<HomeScreen> {
                           children: [
                             Padding(
                               padding: EdgeInsets.only(top: parentHeight * 0.015),
-                              child: Image(
+                              child: const Image(
                                   image: AssetImage("assets/images/circle.png")),
                             ),
                             Padding(
                               padding: EdgeInsets.only(top: parentHeight * 0.015),
-                              child: Image(
+                              child: const Image(
                                   image:
                                       AssetImage("assets/images/plus_icon.png")),
                             ),
@@ -181,7 +182,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 GestureDetector(
                   onDoubleTap: (){},
                   onTap: (){
-                    Navigator.push(context, MaterialPageRoute(builder: (context)=>NEFTNameAccountList()));
+                    Navigator.push(context, MaterialPageRoute(builder: (context)=>const NEFTNameAccountList()));
                   },
                   child: Container(
                     height: parentHeight * 0.12,
@@ -196,12 +197,12 @@ class _HomeScreenState extends State<HomeScreen> {
                           children: [
                             Padding(
                               padding: EdgeInsets.only(top: parentHeight * 0.015),
-                              child: Image(
+                              child: const Image(
                                   image: AssetImage("assets/images/circle.png")),
                             ),
                             Padding(
                               padding: EdgeInsets.only(top: parentHeight * 0.015),
-                              child: Image(
+                              child: const Image(
                                   image:
                                       AssetImage("assets/images/neft_icon.png")),
                             ),
@@ -229,7 +230,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 GestureDetector(
                   onDoubleTap: (){},
                   onTap: (){
-                    Navigator.push(context, MaterialPageRoute(builder: (context)=>RTGSNameAccountList()));
+                    Navigator.push(context, MaterialPageRoute(builder: (context)=>const RTGSNameAccountList()));
                   },
                   child: Container(
                     height: parentHeight * 0.12,
@@ -244,12 +245,12 @@ class _HomeScreenState extends State<HomeScreen> {
                           children: [
                             Padding(
                               padding: EdgeInsets.only(top: parentHeight * 0.015),
-                              child: Image(
+                              child: const Image(
                                   image: AssetImage("assets/images/circle.png")),
                             ),
                             Padding(
                               padding: EdgeInsets.only(top: parentHeight * 0.015),
-                              child: Image(
+                              child: const Image(
                                   image:
                                       AssetImage("assets/images/neft_icon.png")),
                             ),
@@ -274,7 +275,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 GestureDetector(
                   onDoubleTap: (){},
                   onTap: (){
-                    Navigator.push(context, MaterialPageRoute(builder: (context)=>IMPSNameAccountList()));
+                    Navigator.push(context, MaterialPageRoute(builder: (context)=>const IMPSNameAccountList()));
                   },
                   child: Container(
                     height: parentHeight * 0.12,
@@ -289,12 +290,12 @@ class _HomeScreenState extends State<HomeScreen> {
                           children: [
                             Padding(
                               padding: EdgeInsets.only(top: parentHeight * 0.015),
-                              child: Image(
+                              child: const Image(
                                   image: AssetImage("assets/images/circle.png")),
                             ),
                             Padding(
                               padding: EdgeInsets.only(top: parentHeight * 0.015),
-                              child: Image(
+                              child: const Image(
                                   image:
                                       AssetImage("assets/images/imps_icon.png")),
                             ),
@@ -387,7 +388,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         GestureDetector(
                           onDoubleTap: (){},
                           onTap: (){
-                            Navigator.push(context, MaterialPageRoute(builder: (context) => MobileRechargeParentScreen()));
+                            Navigator.push(context, MaterialPageRoute(builder: (context) => const MobileRechargeParentScreen()));
                           },
                           child: Container(
                             height: parentHeight * 0.12,
@@ -399,7 +400,7 @@ class _HomeScreenState extends State<HomeScreen> {
                               children: [
                                 Stack(
                                   alignment: Alignment.center,
-                                  children: [
+                                  children: const [
                                     Image(
                                         image: AssetImage("assets/images/circle.png"),
                                     color: Colors.black12,),
@@ -427,7 +428,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         GestureDetector(
                           onDoubleTap: (){},
                           onTap: (){
-                            Navigator.push(context, MaterialPageRoute(builder: (context)=>FasTagBankList()));
+                            Navigator.push(context, MaterialPageRoute(builder: (context)=>const FasTagBankList()));
                           },
                           child: Container(
                             height: parentHeight * 0.12,
@@ -439,7 +440,7 @@ class _HomeScreenState extends State<HomeScreen> {
                               children: [
                                 Stack(
                                   alignment: Alignment.center,
-                                  children: [
+                                  children: const [
                                     Image(
                                       image: AssetImage("assets/images/circle.png"),
                                       color: Colors.black12,),
@@ -470,7 +471,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         GestureDetector(
                           onDoubleTap: (){},
                           onTap: (){
-                            Navigator.push(context, MaterialPageRoute(builder: (context)=>DTHProviderScreen()));
+                            Navigator.push(context, MaterialPageRoute(builder: (context)=>const DTHProviderScreen()));
                           },
                           child: Container(
                             height: parentHeight * 0.12,
@@ -482,7 +483,7 @@ class _HomeScreenState extends State<HomeScreen> {
                               children: [
                                 Stack(
                                   alignment: Alignment.center,
-                                  children: [
+                                  children: const [
                                     Image(
                                       image: AssetImage("assets/images/circle.png"),
                                       color: Colors.black12,),
@@ -514,7 +515,7 @@ class _HomeScreenState extends State<HomeScreen> {
                               color: Colors.transparent,
                               borderRadius: BorderRadius.circular(15)),
                           child: Column(
-                            children: [
+                            children: const [
                               // Stack(
                               //   alignment: Alignment.center,
                               //   children: [
@@ -590,7 +591,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         GestureDetector(
                           onDoubleTap: (){},
                           onTap: (){
-                            Navigator.push(context, MaterialPageRoute(builder: (context)=>GasCylinderProvider()));
+                            Navigator.push(context, MaterialPageRoute(builder: (context)=>const GasCylinderProvider()));
                           },
                           child: Container(
                             height: parentHeight * 0.12,
@@ -602,7 +603,7 @@ class _HomeScreenState extends State<HomeScreen> {
                               children: [
                                 Stack(
                                   alignment: Alignment.center,
-                                  children: [
+                                  children: const [
                                     Image(
                                       image: AssetImage("assets/images/circle.png"),
                                       color: Colors.black12,),
@@ -630,7 +631,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         GestureDetector(
                           onDoubleTap: (){},
                           onTap: (){
-                            Navigator.push(context, MaterialPageRoute(builder: (context)=>ElectricityBillListScreen()));
+                            Navigator.push(context, MaterialPageRoute(builder: (context)=>const ElectricityBillListScreen()));
                           },
                           child: Container(
                             height: parentHeight * 0.12,
@@ -642,7 +643,7 @@ class _HomeScreenState extends State<HomeScreen> {
                               children: [
                                 Stack(
                                   alignment: Alignment.center,
-                                  children: [
+                                  children: const [
                                     Image(
                                       image: AssetImage("assets/images/circle.png"),
                                       color: Colors.black12,),
@@ -670,7 +671,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         GestureDetector(
                           onDoubleTap: (){},
                           onTap: (){
-                            Navigator.push(context, MaterialPageRoute(builder: (context)=>WaterBillListScreen()));
+                            Navigator.push(context, MaterialPageRoute(builder: (context)=>const WaterBillListScreen()));
                           },
                           child: Container(
                             height: parentHeight * 0.12,
@@ -682,7 +683,7 @@ class _HomeScreenState extends State<HomeScreen> {
                               children: [
                                 Stack(
                                   alignment: Alignment.center,
-                                  children: [
+                                  children: const [
                                     Image(
                                       image: AssetImage("assets/images/circle.png"),
                                       color: Colors.black12,),
@@ -710,7 +711,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         GestureDetector(
                           onDoubleTap: (){},
                           onTap: (){
-                            Navigator.push(context, MaterialPageRoute(builder: (context)=>BSNLLinkAccountScreen()));
+                            Navigator.push(context, MaterialPageRoute(builder: (context)=>const BSNLLinkAccountScreen()));
                           },
                           child: Container(
                             height: parentHeight * 0.12,
@@ -722,7 +723,7 @@ class _HomeScreenState extends State<HomeScreen> {
                               children: [
                                 Stack(
                                   alignment: Alignment.center,
-                                  children: [
+                                  children: const [
                                     Image(
                                       image: AssetImage("assets/images/circle.png"),
                                       color: Colors.black12,),
@@ -796,7 +797,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       children: [
                         GestureDetector(
                           onTap: (){
-                            Navigator.push(context, MaterialPageRoute(builder: (context)=>CreditCardScreen()));
+                            Navigator.push(context, MaterialPageRoute(builder: (context)=>const CreditCardScreen()));
                           },
                           onDoubleTap: (){},
                           child: Container(
@@ -809,7 +810,7 @@ class _HomeScreenState extends State<HomeScreen> {
                               children: [
                                 Stack(
                                   alignment: Alignment.center,
-                                  children: [
+                                  children: const [
                                     Image(
                                       image: AssetImage("assets/images/circle.png"),
                                       color: Colors.black12,),
@@ -837,7 +838,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         GestureDetector(
                           onDoubleTap: (){},
                           onTap: (){
-                            Navigator.push(context, MaterialPageRoute(builder: (context)=>MunicipalListScreen()));
+                            Navigator.push(context, MaterialPageRoute(builder: (context)=>const MunicipalListScreen()));
                           },
                           child: Container(
                             height: parentHeight * 0.12,
@@ -849,7 +850,7 @@ class _HomeScreenState extends State<HomeScreen> {
                               children: [
                                 Stack(
                                   alignment: Alignment.center,
-                                  children: [
+                                  children: const [
                                     Image(
                                       image: AssetImage("assets/images/circle.png"),
                                       color: Colors.black12,),
@@ -877,7 +878,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         GestureDetector(
                           onDoubleTap: (){},
                           onTap: (){
-                            Navigator.push(context, MaterialPageRoute(builder: (context)=>InsuranceTaxListScreen()));
+                            Navigator.push(context, MaterialPageRoute(builder: (context)=>const InsuranceTaxListScreen()));
                           },
                           child: Container(
                             height: parentHeight * 0.12,
@@ -889,7 +890,7 @@ class _HomeScreenState extends State<HomeScreen> {
                               children: [
                                 Stack(
                                   alignment: Alignment.center,
-                                  children: [
+                                  children: const [
                                     Image(
                                       image: AssetImage("assets/images/circle.png"),
                                       color: Colors.black12,),
@@ -917,7 +918,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         GestureDetector(
                           onDoubleTap: (){},
                           onTap: (){
-                            Navigator.push(context, MaterialPageRoute(builder: (context)=>LoanListScreen()));
+                            Navigator.push(context, MaterialPageRoute(builder: (context)=>const LoanListScreen()));
                           },
                           child: Container(
                             height: parentHeight * 0.12,
@@ -929,7 +930,7 @@ class _HomeScreenState extends State<HomeScreen> {
                               children: [
                                 Stack(
                                   alignment: Alignment.center,
-                                  children: [
+                                  children: const [
                                     Image(
                                       image: AssetImage("assets/images/circle.png"),
                                       color: Colors.black12,),
@@ -968,7 +969,7 @@ class _HomeScreenState extends State<HomeScreen> {
             child: GestureDetector(
               onDoubleTap: (){},
               onTap: (){
-                Navigator.push(context, MaterialPageRoute(builder: (context)=>EnterUpiPinScreen(comeFrom: "1",)));
+                Navigator.push(context, MaterialPageRoute(builder: (context)=>EnterUpiPinScreen(comeFrom: "2",)));
               },
               child: Container(
                 height: parentHeight*0.07,
@@ -983,7 +984,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       children: [
                         Padding(
                           padding: EdgeInsets.only(left: parentWidth*0.05),
-                          child: Image(image: AssetImage("assets/images/imps_icon.png"),
+                          child: const Image(image: AssetImage("assets/images/imps_icon.png"),
                           color: CommonColor.WELCOME_TEXT_COLOR,),
                         ),
                         Padding(
@@ -1007,7 +1008,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     ),
                     Padding(
                       padding: EdgeInsets.only(right: parentWidth*0.05),
-                      child: Icon(Icons.arrow_forward_ios),
+                      child: const Icon(Icons.arrow_forward_ios),
                     )
                   ],
                 ),
@@ -1021,6 +1022,14 @@ class _HomeScreenState extends State<HomeScreen> {
 
 
   Widget getRecentLayout(double parentHeight, double parentWidth){
+
+    int lessCount = 0;
+
+    for(int i = 0; i < button.length; i++){
+      if(i == 3){
+        lessCount = 7;
+      }
+    }
     return Container(
       color: Colors.transparent,
       width: double.infinity,
@@ -1052,101 +1061,65 @@ class _HomeScreenState extends State<HomeScreen> {
               ),
               child: Padding(
                 padding: EdgeInsets.only(bottom: parentHeight*0.03),
-                child: Row(
-                  children: [
-                    Expanded(
-                      child: GridView.builder(
-                        physics: NeverScrollableScrollPhysics(),
-                        shrinkWrap: true,
-                        itemCount: click ? button.length : 3,
-                        gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 4),
-                        itemBuilder: (BuildContext context, int index) {
+                child: GridView.builder(
+                  physics: const NeverScrollableScrollPhysics(),
+                  shrinkWrap: true,
+                  itemCount: click ? button.length + 1 : lessCount + 1,
+                  gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                      crossAxisCount: 4,
+                    crossAxisSpacing: 1
+                  ),
+                  itemBuilder: (BuildContext context, int index) {
 
 
-                          int id = button.length - 1;
+                    int id = button.length;
+
+                    int short = lessCount;
 
 
-                          if (index == id) {
-                            return GestureDetector(
-                                onTap: (){
-                                  click = !click;
-                                  setState(() {
-                                    print(click);
-                                  });
-                                },
-                                child: Column(
-                                  children: [
-                                    RotatedBox(
-                                        quarterTurns: click ? 2 : 0,
-                                        child: Stack(
-                                          alignment: Alignment.center,
-                                          children: [
-                                            Image(image: AssetImage("assets/images/welcome_img.png"),
-                                              height: parentHeight*0.065,
-                                              color: CommonColor.APP_NAME_COLOR,),
-                                            Image(image: AssetImage("assets/images/down_arrow.png"),
-                                              color: Colors.white,),
-                                          ],
-                                        )),
-                                    Padding(
-                                      padding:  EdgeInsets.only(top: parentHeight*0.005),
-                                      child: Text(
-                                        "Less",
-                                        style: TextStyle(
-                                            color: Colors.black,
-                                            fontSize: SizeConfig.blockSizeHorizontal * 4.0,
-                                            fontFamily: "Roboto_Regular",
-                                            fontWeight: FontWeight.w400),
-                                        textAlign: TextAlign.center,
-                                      ),
-                                    ),
-                                  ],
-                                ));
-                          }
 
-                          return Container(
-                            width: parentWidth*0.5,
-                            color: Colors.transparent,
-                            child:   Column(
-                              children: <Widget>[
-                                Container(
-                                height: parentHeight*0.061,
-                                decoration: const BoxDecoration(
-                                    shape: BoxShape.circle,
-                                    color: Colors.transparent),
-                                child:  const Image(image: AssetImage("assets/images/recent_user.png"),
-                                  fit: BoxFit.fill,)
-                            ),
-                                Padding(
-                              padding: EdgeInsets.only(top: parentHeight*0.0),
-                              child: Container(
-                                color: Colors.transparent,
+
+
+                    if (index == id) {
+                      return GestureDetector(
+                          onTap: (){
+                            click = !click;
+                            setState(() {
+                              print(click);
+                            });
+                          },
+                          child: Column(
+                            children: [
+                              RotatedBox(
+                                  quarterTurns: click ? 2 : 0,
+                                  child: Stack(
+                                    alignment: Alignment.center,
+                                    children: [
+                                      Image(image: const AssetImage("assets/images/welcome_img.png"),
+                                        height: parentHeight*0.065,
+                                        color: CommonColor.APP_NAME_COLOR,),
+                                      const Image(image: AssetImage("assets/images/down_arrow.png"),
+                                        color: Colors.white,),
+                                    ],
+                                  )),
+                              Padding(
+                                padding:  EdgeInsets.only(top: parentHeight*0.005),
                                 child: Text(
-                                  "Roshan",
+                                  "Less",
                                   style: TextStyle(
                                       color: Colors.black,
-                                      fontSize: SizeConfig.blockSizeHorizontal * 3.5,
+                                      fontSize: SizeConfig.blockSizeHorizontal * 4.0,
                                       fontFamily: "Roboto_Regular",
                                       fontWeight: FontWeight.w400),
                                   textAlign: TextAlign.center,
                                 ),
                               ),
-                            ),
-                          ],
-                        ),
-                          );
-                        },
-
-
-
-                        // click ? widget._homeScopedModel.homePageModel.category.length : 4,
-                      ),
-                    ),
-                    Padding(
-                      padding: EdgeInsets.only(top: parentHeight*0.04, right: parentWidth*0.05),
-                      child: Visibility(
-                        visible: click == false ? true : false,
-                        child: GestureDetector(
+                            ],
+                          ));
+                    } if(index == short){
+                      return  Padding(
+                        padding: EdgeInsets.only(top: parentHeight*0.0, right: parentWidth*0.05),
+                        child:click == false ? GestureDetector(
                             onTap: (){
                               click = !click;
                               setState(() {});
@@ -1158,23 +1131,94 @@ class _HomeScreenState extends State<HomeScreen> {
                                     child: Stack(
                                       alignment: Alignment.center,
                                       children: [
-                                        Image(image: AssetImage("assets/images/welcome_img.png"),
+                                        Image(image: const AssetImage("assets/images/welcome_img.png"),
                                           height: parentHeight*0.06,
                                           color: CommonColor.APP_NAME_COLOR,),
-                                        Image(image: AssetImage("assets/images/down_arrow.png"),
+                                        const Image(image: AssetImage("assets/images/down_arrow.png"),
                                           color: Colors.white,),
 
                                       ],
                                     )),
                                 Padding(
                                   padding: EdgeInsets.only(top: parentHeight*0.01),
-                                  child: Text("More"),
+                                  child: const Text("More"),
                                 )
                               ],
-                            )),
+                            )) :
+                        Container(
+                          width: parentWidth*0.5,
+                          color: Colors.transparent,
+                          child:   Column(
+                            children: <Widget>[
+                              Container(
+                                  height: parentHeight*0.061,
+                                  decoration: const BoxDecoration(
+                                      shape: BoxShape.circle,
+                                      color: Colors.transparent),
+                                  child:  const Image(image: AssetImage("assets/images/recent_user.png"),
+                                    fit: BoxFit.cover,)
+                              ),
+                              Padding(
+                                padding: EdgeInsets.only(top: parentHeight*0.0),
+                                child: Container(
+                                  width: parentWidth*0.2,
+                                  color: Colors.transparent,
+                                  child: Text(
+                                    "Roshan Sir Codexxa ",
+                                    style: TextStyle(
+                                        color: Colors.black,
+                                        fontSize: SizeConfig.blockSizeHorizontal * 3.0,
+                                        fontFamily: "Roboto_Medium",
+                                        fontWeight: FontWeight.w500),
+                                    textAlign: TextAlign.center,
+                                    overflow: TextOverflow.ellipsis,
+                                  ),
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                      );
+                    }
+
+                    return Container(
+                      width: parentWidth*0.5,
+                      color: Colors.transparent,
+                      child:   Column(
+                        children: <Widget>[
+                          Container(
+                          height: parentHeight*0.061,
+                          decoration: const BoxDecoration(
+                              shape: BoxShape.circle,
+                              color: Colors.transparent),
+                          child:  const Image(image: AssetImage("assets/images/recent_user.png"),
+                            fit: BoxFit.cover,)
                       ),
-                    )
-                  ],
+                          Padding(
+                           padding: EdgeInsets.only(top: parentHeight*0.0),
+                            child: Container(
+                              width: parentWidth*0.2,
+                              color: Colors.transparent,
+                              child: Text(
+                                "Roshan Sir Codexxa ",
+                                style: TextStyle(
+                                    color: Colors.black,
+                                    fontSize: SizeConfig.blockSizeHorizontal * 3.0,
+                                    fontFamily: "Roboto_Medium",
+                                    fontWeight: FontWeight.w500),
+                                textAlign: TextAlign.center,
+                                overflow: TextOverflow.ellipsis,
+                              ),
+                            ),
+                      ),
+                    ],
+                  ),
+                    );
+                  },
+
+
+
+                  // click ? widget._homeScopedModel.homePageModel.category.length : 4,
                 ),
               ),
             ),
