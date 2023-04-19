@@ -25,34 +25,45 @@ class _ChatRoomScreenState extends State<ChatRoomScreen> {
             shrinkWrap: true,
             padding: EdgeInsets.zero,
             children: [
-              Stack(
-                alignment: Alignment.bottomCenter,
-                children: [
-                  Container(
-                    color: CommonColor.LAYOUT_BACKGROUND_COLOR,
-                    height: SizeConfig.safeUsedHeight,
-                    child: ListView(
+              Container(
+                color: CommonColor.LAYOUT_BACKGROUND_COLOR,
+                height: SizeConfig.safeUsedHeight,
+                child: Stack(
+                  alignment: Alignment.bottomCenter,
+                  children: [
+                    ListView(
                       shrinkWrap: true,
                       padding: EdgeInsets.only(bottom: SizeConfig.screenHeight * 0.1),
                       children: [
 
+                        getSenderLayout(SizeConfig.screenHeight, SizeConfig.screenWidth),
+                        getReceiverLayout(SizeConfig.screenHeight, SizeConfig.screenWidth),
+                        getSenderLayout(SizeConfig.screenHeight, SizeConfig.screenWidth),
+                        getReceiverLayout(SizeConfig.screenHeight, SizeConfig.screenWidth),
+                        getSenderLayout(SizeConfig.screenHeight, SizeConfig.screenWidth),
+                        getReceiverLayout(SizeConfig.screenHeight, SizeConfig.screenWidth),
+                        getSenderLayout(SizeConfig.screenHeight, SizeConfig.screenWidth),
+                        getReceiverLayout(SizeConfig.screenHeight, SizeConfig.screenWidth),
+                        getSenderLayout(SizeConfig.screenHeight, SizeConfig.screenWidth),
+                        getReceiverLayout(SizeConfig.screenHeight, SizeConfig.screenWidth),
+
+
                       ],
                     ),
-                  ),
-                  Padding(
-                    padding: EdgeInsets.only(left: SizeConfig.screenWidth*0.03,
-                        right: SizeConfig.screenWidth*0.03),
-                    child: Container(
-                      height: SizeConfig.screenHeight*0.06,
-                      decoration: BoxDecoration(
-                        color: Colors.white24
-                      ),
-                      child: Stack(
-                        alignment: Alignment.center,
-                        children: [
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
+                    Padding(
+                      padding: EdgeInsets.only(left: SizeConfig.screenWidth*0.03,
+                          right: SizeConfig.screenWidth*0.03),
+                      child: Container(
+                        height: SizeConfig.screenHeight*0.06,
+                        decoration: BoxDecoration(
+                            color: Colors.white24
+                        ),
+                        child: Stack(
+                          alignment: Alignment.center,
+                          children: [
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
                                 GestureDetector(
                                   onDoubleTap: (){},
                                   onTap: (){
@@ -62,62 +73,62 @@ class _ChatRoomScreenState extends State<ChatRoomScreen> {
                                     height: SizeConfig.screenHeight*0.04,
                                     width: SizeConfig.screenWidth*0.2,
                                     decoration: BoxDecoration(
-                                      color: CommonColor.WELCOME_TEXT_COLOR,
-                                      borderRadius: BorderRadius.circular(20)
+                                        color: CommonColor.WELCOME_TEXT_COLOR,
+                                        borderRadius: BorderRadius.circular(20)
                                     ),
                                     child: Center(child: Text("Pay",
-                                    style: TextStyle(
-                                      color: Colors.white,
-                                      fontSize: SizeConfig.blockSizeHorizontal*3.0,
-                                      fontFamily: 'Roboto_Bold',
-                                      fontWeight: FontWeight.w500
-                                    ),)),
+                                      style: TextStyle(
+                                          color: Colors.white,
+                                          fontSize: SizeConfig.blockSizeHorizontal*3.0,
+                                          fontFamily: 'Roboto_Bold',
+                                          fontWeight: FontWeight.w500
+                                      ),)),
                                   ),
                                 ),
                                 Container(
                                   height: SizeConfig.screenHeight*0.04,
                                   width: SizeConfig.screenWidth*0.2,
                                   decoration: BoxDecoration(
-                                    color: CommonColor.WELCOME_TEXT_COLOR,
-                                    borderRadius: BorderRadius.circular(20)
+                                      color: CommonColor.WELCOME_TEXT_COLOR,
+                                      borderRadius: BorderRadius.circular(20)
                                   ),
                                   child: Center(child: Text("Request",
-                                  style: TextStyle(
-                                    color: Colors.white,
-                                    fontSize: SizeConfig.blockSizeHorizontal*3.0,
-                                    fontFamily: 'Roboto_Bold',
-                                    fontWeight: FontWeight.w500
-                                  ),)),
+                                    style: TextStyle(
+                                        color: Colors.white,
+                                        fontSize: SizeConfig.blockSizeHorizontal*3.0,
+                                        fontFamily: 'Roboto_Bold',
+                                        fontWeight: FontWeight.w500
+                                    ),)),
                                 ),
                                 Container(
-                                  height: SizeConfig.screenHeight*0.04,
-                                  width: SizeConfig.screenWidth*0.5,
-                                  decoration: BoxDecoration(
-                                    color: CommonColor.WELCOME_TEXT_COLOR.withOpacity(0.07),
-                                    borderRadius: BorderRadius.circular(20)
-                                  ),
-                                  child: TextFormField(
-                                    decoration: InputDecoration(
-                                      suffixIcon: Icon(Icons.send),
-                                      suffixIconColor: Colors.black26,
-                                      contentPadding: EdgeInsets.only(bottom: SizeConfig.screenHeight*0.01, left: SizeConfig.screenWidth*0.03),
-                                      hintText:"Message...",
-                                      hintStyle: TextStyle(
-                                          color: Colors.black26,
-                                          fontSize: SizeConfig.blockSizeHorizontal*3.5,
-                                          fontFamily: 'Roboto_Regular',
-                                          fontWeight: FontWeight.w400
-                                      ),
-                                      enabledBorder: UnderlineInputBorder(
-                                        borderSide: BorderSide.none,
-                                      ),
-                                      focusedBorder: UnderlineInputBorder(
-                                        borderSide: BorderSide.none,
-                                      ),
+                                    height: SizeConfig.screenHeight*0.04,
+                                    width: SizeConfig.screenWidth*0.5,
+                                    decoration: BoxDecoration(
+                                        color: CommonColor.WELCOME_TEXT_COLOR.withOpacity(0.07),
+                                        borderRadius: BorderRadius.circular(20)
                                     ),
-                                    maxLines: 3,
-                                    minLines: 1,
-                                  )
+                                    child: TextFormField(
+                                      decoration: InputDecoration(
+                                        suffixIcon: Icon(Icons.send),
+                                        suffixIconColor: Colors.black26,
+                                        contentPadding: EdgeInsets.only(bottom: SizeConfig.screenHeight*0.01, left: SizeConfig.screenWidth*0.03),
+                                        hintText:"Message...",
+                                        hintStyle: TextStyle(
+                                            color: Colors.black26,
+                                            fontSize: SizeConfig.blockSizeHorizontal*3.5,
+                                            fontFamily: 'Roboto_Regular',
+                                            fontWeight: FontWeight.w400
+                                        ),
+                                        enabledBorder: UnderlineInputBorder(
+                                          borderSide: BorderSide.none,
+                                        ),
+                                        focusedBorder: UnderlineInputBorder(
+                                          borderSide: BorderSide.none,
+                                        ),
+                                      ),
+                                      maxLines: 3,
+                                      minLines: 1,
+                                    )
                                   // Row(
                                   //   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                   //   children: [
@@ -139,40 +150,14 @@ class _ChatRoomScreenState extends State<ChatRoomScreen> {
                                   // ),
                                 ),
 
-                            ],
-                          ),
-                          /*Container(
-                            color: Colors.white,
-                            child: TextFormField(
-                                    decoration: InputDecoration(
-                                      suffixIcon: Icon(Icons.send),
-                                      suffixIconColor: CommonColor.WELCOME_TEXT_COLOR,
-                                      contentPadding: EdgeInsets.only(top: SizeConfig.screenHeight*0.01,
-                                          left: SizeConfig.screenWidth*0.05),
-                                      hintText:"Message...",
-                                      hintStyle: TextStyle(
-                                          color: Colors.black26,
-                                          fontSize: SizeConfig.blockSizeHorizontal*3.5,
-                                          fontFamily: 'Roboto_Regular',
-                                          fontWeight: FontWeight.w400
-                                      ),
-                                      enabledBorder: UnderlineInputBorder(
-                                        borderSide: BorderSide.none,
-                                      ),
-                                      focusedBorder: UnderlineInputBorder(
-                                        borderSide: BorderSide.none,
-                                      ),
-                                    ),
-                                    maxLines: 3,
-                              minLines: 1,
-                              textAlign: TextAlign.justify,
-                                  ),
-                          ),*/
-                        ],
+                              ],
+                            ),
+                          ],
+                        ),
                       ),
-                    ),
-                  )
-                ],
+                    )
+                  ],
+                ),
               ),
             ],
           ),
@@ -274,6 +259,308 @@ class _ChatRoomScreenState extends State<ChatRoomScreen> {
           Icon(Icons.more_vert,
             color: Colors.black,
           size: parentHeight*0.04,)
+        ],
+      ),
+    );
+  }
+
+  Widget getSenderLayout(double parentHeight, double parentWidth){
+    return Padding(
+      padding: EdgeInsets.only(top: parentHeight*0.03),
+      child: Column(
+        children: [
+          Stack(
+            alignment: Alignment.center,
+            children: [
+              Padding(
+                padding: EdgeInsets.only(
+                    left: parentWidth*0.03,
+                    right: parentWidth*0.03),
+                child: Container(
+                  height: SizeConfig.screenWidth*0.003,
+                  color: Colors.black12,
+                  child: Row(
+                    children: const [
+                      Text("hii",
+                        style: TextStyle(
+                            color: Colors.transparent
+                        ),),
+                    ],
+                  ),
+                ),
+              ),
+              Container(
+                width: parentWidth*0.21,
+                height: parentHeight*0.011,
+                decoration: BoxDecoration(
+                  color: CommonColor.CONTACT_BACKGROUND_COLOR,
+                ),
+                child: Center(
+                  child: Text("25 Jan 2023 09:30",
+                    style: TextStyle(
+                        color: Colors.black,
+                        fontSize: SizeConfig.blockSizeHorizontal*2.2,
+                        fontWeight: FontWeight.w400,
+                        fontFamily: 'Roboto_Medium'
+                    ),
+                  ),
+                ),
+              ),
+            ],
+          ),
+          Padding(
+            padding: EdgeInsets.only(right: parentWidth*0.05, top: parentHeight*0.03),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.end,
+              children: [
+                Container(
+                  height: parentHeight*0.17,
+                  width: parentWidth*0.6,
+                  decoration: BoxDecoration(
+                    color: Colors.white,
+                    borderRadius: BorderRadius.circular(10),
+                    boxShadow: <BoxShadow>[
+                      BoxShadow(
+                          color: Colors.black.withOpacity(0.1),
+                          blurRadius: 5,
+                          spreadRadius: 1,
+                          offset: const Offset(2, 6))
+                    ],
+                  ),
+                  child: Padding(
+                    padding: EdgeInsets.only(top: parentHeight*0.02,
+                    left: parentWidth*0.03),
+                    child: Column(
+                      children: [
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          children: [
+                            Container(
+                              width: parentWidth*0.55,
+                              color: Colors.transparent,
+                              child: Text("Payment to Sarthak Jadhav",
+                                style: TextStyle(
+                                    color: CommonColor.PAYMENT_SETTING_COLOR,
+                                    fontSize: SizeConfig.blockSizeHorizontal*4.0,
+                                    fontWeight: FontWeight.w400,
+                                    fontFamily: 'Roboto_Regular'
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
+                        Padding(
+                          padding: EdgeInsets.only(top: parentHeight*0.03),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.start,
+                            children: [
+                              Text("Rs 1,000",
+                                style: TextStyle(
+                                    color: CommonColor.PAYMENT_SETTING_COLOR,
+                                    fontSize: SizeConfig.blockSizeHorizontal*6.0,
+                                    fontWeight: FontWeight.w400,
+                                    fontFamily: 'Roboto_Regular'
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                        Padding(
+                          padding: EdgeInsets.only(top: parentHeight*0.03),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Row(
+                                children: [
+
+                                  Stack(
+                                    children: [
+                                      Image(image: AssetImage("assets/images/check_circle.png"),),
+                                      Image(image: AssetImage("assets/images/verify_bank_check.png"),),
+                                    ],
+                                  ),
+
+                                  Padding(
+                                    padding: EdgeInsets.only(left: parentWidth*0.02),
+                                    child: Text(
+                                      "Paid . 26 Jun,2021",
+                                      style: TextStyle(
+                                          color: CommonColor.BLACK_COLOR,
+                                          fontSize: SizeConfig.blockSizeHorizontal * 3.0,
+                                          fontFamily: "Roboto_Regular",
+                                          fontWeight: FontWeight.w400),
+                                      textScaleFactor: 1.0,
+                                    ),
+                                  ),
+
+                                ],
+                              ),
+                              Padding(
+                                padding: EdgeInsets.only(right: parentWidth*0.03),
+                                child: Icon(Icons.arrow_forward_ios,
+                                size: parentHeight*0.02,),
+                              )
+                            ],
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          )
+        ],
+      ),
+    );
+  }
+
+  Widget getReceiverLayout(double parentHeight, double parentWidth){
+    return Padding(
+      padding: EdgeInsets.only(top: parentHeight*0.03),
+      child: Column(
+        children: [
+          Stack(
+            alignment: Alignment.center,
+            children: [
+              Padding(
+                padding: EdgeInsets.only(
+                    left: parentWidth*0.03,
+                    right: parentWidth*0.03),
+                child: Container(
+                  height: SizeConfig.screenWidth*0.003,
+                  color: Colors.black12,
+                  child: Row(
+                    children: const [
+                      Text("hii",
+                        style: TextStyle(
+                            color: Colors.transparent
+                        ),),
+                    ],
+                  ),
+                ),
+              ),
+              Container(
+                width: parentWidth*0.21,
+                height: parentHeight*0.011,
+                decoration: BoxDecoration(
+                  color: CommonColor.CONTACT_BACKGROUND_COLOR,
+                ),
+                child: Center(
+                  child: Text("25 Jan 2023 09:30",
+                    style: TextStyle(
+                        color: Colors.black,
+                        fontSize: SizeConfig.blockSizeHorizontal*2.2,
+                        fontWeight: FontWeight.w400,
+                        fontFamily: 'Roboto_Medium'
+                    ),
+                  ),
+                ),
+              ),
+            ],
+          ),
+          Padding(
+            padding: EdgeInsets.only(left: parentWidth*0.05, top: parentHeight*0.03),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: [
+                Container(
+                  height: parentHeight*0.17,
+                  width: parentWidth*0.6,
+                  decoration: BoxDecoration(
+                    color: Colors.white,
+                    borderRadius: BorderRadius.circular(10),
+                    boxShadow: <BoxShadow>[
+                      BoxShadow(
+                          color: Colors.black.withOpacity(0.1),
+                          blurRadius: 5,
+                          spreadRadius: 1,
+                          offset: const Offset(2, 6))
+                    ],
+                  ),
+                  child: Padding(
+                    padding: EdgeInsets.only(top: parentHeight*0.02,
+                    left: parentWidth*0.03),
+                    child: Column(
+                      children: [
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          children: [
+                            Container(
+                              width: parentWidth*0.55,
+                              color: Colors.transparent,
+                              child: Text("Payment from Sarthak Jadhav",
+                                style: TextStyle(
+                                    color: CommonColor.PAYMENT_SETTING_COLOR,
+                                    fontSize: SizeConfig.blockSizeHorizontal*4.0,
+                                    fontWeight: FontWeight.w400,
+                                    fontFamily: 'Roboto_Regular'
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
+                        Padding(
+                          padding: EdgeInsets.only(top: parentHeight*0.03),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.start,
+                            children: [
+                              Text("Rs 1,000",
+                                style: TextStyle(
+                                    color: CommonColor.PAYMENT_SETTING_COLOR,
+                                    fontSize: SizeConfig.blockSizeHorizontal*6.0,
+                                    fontWeight: FontWeight.w400,
+                                    fontFamily: 'Roboto_Regular'
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                        Padding(
+                          padding: EdgeInsets.only(top: parentHeight*0.03),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Row(
+                                children: [
+
+                                  Stack(
+                                    children: [
+                                      Image(image: AssetImage("assets/images/check_circle.png"),),
+                                      Image(image: AssetImage("assets/images/verify_bank_check.png"),),
+                                    ],
+                                  ),
+
+                                  Padding(
+                                    padding: EdgeInsets.only(left: parentWidth*0.02),
+                                    child: Text(
+                                      "Paid . 26 Jun,2021",
+                                      style: TextStyle(
+                                          color: CommonColor.BLACK_COLOR,
+                                          fontSize: SizeConfig.blockSizeHorizontal * 3.0,
+                                          fontFamily: "Roboto_Regular",
+                                          fontWeight: FontWeight.w400),
+                                      textScaleFactor: 1.0,
+                                    ),
+                                  ),
+
+                                ],
+                              ),
+                              Padding(
+                                padding: EdgeInsets.only(right: parentWidth*0.03),
+                                child: Icon(Icons.arrow_forward_ios,
+                                size: parentHeight*0.02,),
+                              )
+                            ],
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          )
         ],
       ),
     );
