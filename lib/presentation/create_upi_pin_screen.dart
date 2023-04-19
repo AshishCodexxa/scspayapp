@@ -26,7 +26,7 @@ class _CreateUpiPinState extends State<CreateUpiPin> {
           ),
 
           Container(
-            color: CommonColor.WHITE_COLOR,
+            color: CommonColor.LAYOUT_BACKGROUND_COLOR,
             height: SizeConfig.safeUsedHeight * .88,
             child: CustomScrollView(
               slivers: <Widget>[
@@ -104,7 +104,7 @@ class _CreateUpiPinState extends State<CreateUpiPin> {
                                   right: SizeConfig.screenWidth * 0.03,
                                 ),
                                 child: Container(
-                                  height: SizeConfig.screenHeight * 0.06,
+                                  height: SizeConfig.screenHeight * 0.07,
                                   decoration: BoxDecoration(
                                     color: Colors.white,
                                     borderRadius: BorderRadius.circular(10),
@@ -171,10 +171,11 @@ class _CreateUpiPinState extends State<CreateUpiPin> {
                                             Icon(Icons.circle_outlined,
                                               color: CommonColor.APP_NAME_COLOR,),
                                             Padding(
-                                              padding: EdgeInsets.only(right: SizeConfig.screenWidth*0.0024, bottom: SizeConfig.screenHeight*0.0007),
+                                              padding: EdgeInsets.only(right: SizeConfig.screenWidth*0.0024,
+                                              ),
                                               child: Icon(Icons.circle,
                                                 color: CommonColor.APP_NAME_COLOR,
-                                                size: SizeConfig.blockSizeHorizontal*3.5,),
+                                                size: SizeConfig.blockSizeHorizontal*3.35,),
                                             ),
                                           ],
                                         ),

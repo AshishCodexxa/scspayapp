@@ -243,7 +243,7 @@ class _HistoryScreenState extends State<HistoryScreen> {
             child: Padding(
               padding: EdgeInsets.only(
                   top: parentHeight * 0.00,
-                  bottom: parentHeight * 0.012,
+                  bottom: parentHeight * 0.005,
                   left: parentWidth * 0.05,
                   right: parentWidth * 0.04),
               child: Container(
@@ -302,7 +302,7 @@ class _HistoryScreenState extends State<HistoryScreen> {
                         enabledBorder: InputBorder.none,
                         errorBorder: InputBorder.none,
                         disabledBorder: InputBorder.none,
-                        hintText: focusText == true ? "" : "Search by biller",
+                        hintText: focusText == true ? "" : "Search Transaction",
                         hintStyle: TextStyle(
                             color: Colors.black26,
                             fontFamily: 'Roboto_Regular',

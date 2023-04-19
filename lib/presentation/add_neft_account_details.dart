@@ -104,7 +104,7 @@ class _NEFTAccountAddScreenState extends State<NEFTAccountAddScreen> {
     return Padding(
       padding: EdgeInsets.only(top: parentHeight*0.03, left: parentWidth*0.03, right: parentWidth*0.03),
       child: Container(
-        height: parentHeight*0.65,
+        height: parentHeight*0.67,
         decoration: BoxDecoration(
           color: Colors.white,
           borderRadius: BorderRadius.circular(10)

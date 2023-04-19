@@ -101,7 +101,7 @@ class _UpiPinConfirmScreenState extends State<UpiPinConfirmScreen> {
           Padding(
             padding: EdgeInsets.only(top: parentHeight*0.03),
             child: Text(
-              "Set Security Pin",
+              "Confirm your Pin",
               style: TextStyle(
                   fontSize:
                   SizeConfig.blockSizeHorizontal * 5.0,
@@ -315,7 +315,7 @@ class _UpiPinConfirmScreenState extends State<UpiPinConfirmScreen> {
             child: GestureDetector(
               onDoubleTap: () {},
               onTap: () {
-                Navigator.push(context, MaterialPageRoute(builder: (context)=>UpiPinSuccess(comeFrom: widget.comesFrom,)));
+                Navigator.push(context, MaterialPageRoute(builder: (context)=>UpiPinSuccess(comeFrom: "1",)));
               },
               child: Container(
                 height: SizeConfig.screenHeight * 0.06,

@@ -256,7 +256,7 @@ class _TransferFromQRScanState extends State<TransferFromQRScan> {
             child: GestureDetector(
               onDoubleTap: () {},
               onTap: () {
-                Navigator.push(context, MaterialPageRoute(builder: (context)=>EnterUpiPinScreen()));
+                Navigator.push(context, MaterialPageRoute(builder: (context)=>EnterUpiPinScreen(comeFrom: "1",)));
               },
               child: Container(
                 height: SizeConfig.screenHeight * 0.055,

@@ -75,7 +75,7 @@ class _LoginScreenState extends State<LoginScreen> {
 
   Widget getUserNamePassLayout(double parentHeight, double parentWidth){
     return Padding(
-      padding: EdgeInsets.only(left: parentWidth*0.07, right: parentWidth*0.07, top: parentHeight*0.05),
+      padding: EdgeInsets.only(left: parentWidth*0.06, right: parentWidth*0.07, top: parentHeight*0.05),
       child: Column(
         children: [
 
@@ -217,7 +217,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   mainAxisAlignment: MainAxisAlignment.start,
                   children: [
                     Padding(
-                      padding: EdgeInsets.only(left: parentWidth * 0.02),
+                      padding: EdgeInsets.only(left: parentWidth * 0.01),
                       child: RichText(
                           text: const TextSpan(
                               text: "I have read and agree to SCS Pay",
