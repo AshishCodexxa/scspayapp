@@ -343,7 +343,7 @@ class _AllBillAccountsState extends State<AllBillAccounts> {
                                     color: Colors.black12,),
                                   Image(
                                       image:
-                                      AssetImage("assets/images/mobile.png")),
+                                      AssetImage("assets/images/cylinder.png")),
                                 ],
                               ),
                               Padding(
@@ -423,7 +423,7 @@ class _AllBillAccountsState extends State<AllBillAccounts> {
                                     color: Colors.black12,),
                                   Image(
                                       image:
-                                      AssetImage("assets/images/water_bill.png")),
+                                      AssetImage("assets/images/water_drop.png")),
                                 ],
                               ),
                               Padding(
@@ -551,7 +551,7 @@ class _AllBillAccountsState extends State<AllBillAccounts> {
                                     color: Colors.black12,),
                                   Image(
                                       image:
-                                      AssetImage("assets/images/mobile.png")),
+                                      AssetImage("assets/images/credit_card.png")),
                                 ],
                               ),
                               Padding(
@@ -631,7 +631,7 @@ class _AllBillAccountsState extends State<AllBillAccounts> {
                                     color: Colors.black12,),
                                   Image(
                                       image:
-                                      AssetImage("assets/images/water_bill.png")),
+                                      AssetImage("assets/images/insurance.png")),
                                 ],
                               ),
                               Padding(
@@ -671,7 +671,7 @@ class _AllBillAccountsState extends State<AllBillAccounts> {
                                     color: Colors.black12,),
                                   Image(
                                       image:
-                                      AssetImage("assets/images/water_bill.png")),
+                                      AssetImage("assets/images/rupee_bag.png")),
                                 ],
                               ),
                               Padding(

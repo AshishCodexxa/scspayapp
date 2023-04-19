@@ -859,7 +859,7 @@ class _BillScreenState extends State<BillScreen> {
             },
             child: Container(
               height: SizeConfig.screenHeight*0.07,
-              color: CommonColor.SIM_VERIFY_COLOR.withOpacity(0.9),
+              color: CommonColor.SIM_VERIFY_COLOR,
               child:  Column(
                 crossAxisAlignment: CrossAxisAlignment.center,
                 mainAxisAlignment: MainAxisAlignment.center,
