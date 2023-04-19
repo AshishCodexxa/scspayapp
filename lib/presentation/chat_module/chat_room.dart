@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:scspay/common_file/common_color.dart';
 import 'package:scspay/common_file/size_config.dart';
 import 'package:scspay/presentation/pay_amount_notes_screen.dart';
@@ -14,6 +15,12 @@ class ChatRoomScreen extends StatefulWidget {
 }
 
 class _ChatRoomScreenState extends State<ChatRoomScreen> {
+
+
+  final TextEditingController _textController = new TextEditingController();
+  final FocusNode _textFocusNode = new FocusNode();
+  FocusNode _chatFocus = FocusNode();
+
   @override
   Widget build(BuildContext context) {
     SizeConfig().init(context);
@@ -56,7 +63,7 @@ class _ChatRoomScreenState extends State<ChatRoomScreen> {
                       child: Container(
                         height: SizeConfig.screenHeight*0.06,
                         decoration: BoxDecoration(
-                            color: Colors.white24
+                            color: Colors.white
                         ),
                         child: Stack(
                           alignment: Alignment.center,
@@ -156,6 +163,116 @@ class _ChatRoomScreenState extends State<ChatRoomScreen> {
                         ),
                       ),
                     )
+                   /* Padding(
+                      padding: EdgeInsets.only(top: SizeConfig.screenHeight*0.93),
+                      child: Container(
+                        color: CommonColor.BLACK_COLOR,
+                        child: Row(
+                          mainAxisSize: MainAxisSize.max,
+                          children: [
+                            GestureDetector(
+                              onDoubleTap: () {},
+                              child: Container(
+                                color: Colors.transparent,
+                                child: Padding(
+                                  padding: EdgeInsets.only(
+                                    left: SizeConfig.screenWidth * 0.02,
+                                    right: SizeConfig.screenWidth * 0.02,
+
+                                  ),
+                                  child: Text(
+                                    "+",
+                                    style: TextStyle(
+                                      color: Colors.white,
+                                      fontSize: SizeConfig.safeBlockHorizontal * 11.0,
+                                      fontFamily: 'Roboto_Regular',
+                                    ),
+                                  ),
+                                ),
+                              ),
+                            ),
+                            Expanded(
+                              child: Padding(
+                                padding: EdgeInsets.only(
+                                  top: SizeConfig.screenHeight * 0.01,
+                                  bottom: SizeConfig.screenHeight * 0.01,
+                                ),
+                                child: Container(
+                                  alignment: Alignment.center,
+                                  decoration: BoxDecoration(
+                                    color: Colors.white,
+                                    borderRadius: BorderRadius.circular(05),
+                                  ),
+                                  child: TextFormField(
+                                    // keyboardType: TextInputType.multiline,
+                                    maxLines: 5,
+                                    minLines: 1,
+                                    controller: _textController,
+                                    textAlignVertical: TextAlignVertical.center,
+                                    maxLengthEnforcement: MaxLengthEnforcement.enforced,
+                                    focusNode: _textFocusNode,
+
+                                    // obscureText: true,
+
+                                    decoration: InputDecoration(
+
+                                      isDense: true,
+                                      border: InputBorder.none,
+                                      hintText: _textFocusNode.hasFocus ? "" : "Message...",
+                                      // counterText: '',
+                                      contentPadding: EdgeInsets.only(
+                                          left: SizeConfig.screenWidth * 0.03,
+                                          top: SizeConfig.screenHeight * 0.01,
+                                          bottom: SizeConfig.screenHeight * .01),
+                                      hintStyle: TextStyle(
+                                        fontFamily: "Roboto_Regular",
+                                        fontSize: SizeConfig.blockSizeHorizontal * 4.0,
+                                        color: Colors.black,
+                                      ),
+                                    ),
+                                    style: TextStyle(
+                                      fontFamily: "Roboto_Regular",
+                                      fontSize: SizeConfig.blockSizeHorizontal * 4.0,
+                                      color: CommonColor.BLACK_COLOR,
+                                    ),
+                                    textInputAction: TextInputAction.done,
+                                    onFieldSubmitted: (term) {
+                                      _chatFocus.unfocus();
+                                      // Navigator.pop(context);
+                                    },
+                                  ),
+                                ),
+                              ),
+                            ),
+                            GestureDetector(
+
+                                onDoubleTap: () {},
+                                child: Padding(
+                                  padding: EdgeInsets.only(
+                                    left: SizeConfig.screenWidth * 0.04,
+                                    right: SizeConfig.screenWidth * 0.04,
+
+                                  ),
+                                  child: new Container(
+                                    height: SizeConfig.screenHeight * .043,
+                                    width: SizeConfig.screenHeight * .043,
+                                    decoration: new BoxDecoration(
+                                      // color: CommonColor.OK_BUTTON_COLOR,
+                                      shape: BoxShape.circle,
+                                      image: new DecorationImage(
+                                        image: AssetImage("assets/images/send_msg.png"),
+                                        fit: BoxFit.fill,
+                                      ),
+                                    ),
+                                  ),
+                                )
+
+
+                            )
+                          ],
+                        ),
+                      ),
+                    )*/
                   ],
                 ),
               ),
@@ -534,7 +651,7 @@ class _ChatRoomScreenState extends State<ChatRoomScreen> {
                                   Padding(
                                     padding: EdgeInsets.only(left: parentWidth*0.02),
                                     child: Text(
-                                      "Paid . 26 Jun,2021",
+                                      "Received . 26 Jun,2021",
                                       style: TextStyle(
                                           color: CommonColor.BLACK_COLOR,
                                           fontSize: SizeConfig.blockSizeHorizontal * 3.0,
