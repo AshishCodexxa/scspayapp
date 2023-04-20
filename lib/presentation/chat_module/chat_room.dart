@@ -17,9 +17,15 @@ class ChatRoomScreen extends StatefulWidget {
 class _ChatRoomScreenState extends State<ChatRoomScreen> {
 
 
-  final TextEditingController _textController = new TextEditingController();
-  final FocusNode _textFocusNode = new FocusNode();
+  final TextEditingController _textController = TextEditingController();
+  final FocusNode _textFocusNode = FocusNode();
   FocusNode _chatFocus = FocusNode();
+
+
+  List<ChatModel>? senderList ;
+  List<String> sender=[] ;
+
+
 
   @override
   Widget build(BuildContext context) {
@@ -53,226 +59,112 @@ class _ChatRoomScreenState extends State<ChatRoomScreen> {
                         getReceiverLayout(SizeConfig.screenHeight, SizeConfig.screenWidth),
                         getSenderLayout(SizeConfig.screenHeight, SizeConfig.screenWidth),
                         getReceiverLayout(SizeConfig.screenHeight, SizeConfig.screenWidth),
-
-
+                        for(int i = 0; i < sender.length; i++)
+                        getSenderMessage(SizeConfig.screenHeight, SizeConfig.screenWidth),
+                        // getRecieverMessage(SizeConfig.screenHeight, SizeConfig.screenWidth),
                       ],
                     ),
-                    Padding(
-                      padding: EdgeInsets.only(left: SizeConfig.screenWidth*0.03,
-                          right: SizeConfig.screenWidth*0.03),
-                      child: Container(
-                        height: SizeConfig.screenHeight*0.06,
-                        decoration: BoxDecoration(
-                            color: Colors.white
-                        ),
-                        child: Stack(
-                          alignment: Alignment.center,
+                    Container(
+                      height: SizeConfig.screenHeight*0.06,
+                      decoration: BoxDecoration(
+                          color: Colors.white
+                      ),
+                      child: Padding(
+                        padding: EdgeInsets.only(left: SizeConfig.screenWidth*0.03,
+                            right: SizeConfig.screenWidth*0.03),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: [
-                                GestureDetector(
-                                  onDoubleTap: (){},
-                                  onTap: (){
-                                    Navigator.push(context, MaterialPageRoute(builder: (context)=>TransferFromQRScan()));
-                                  },
-                                  child: Container(
-                                    height: SizeConfig.screenHeight*0.04,
-                                    width: SizeConfig.screenWidth*0.2,
-                                    decoration: BoxDecoration(
-                                        color: CommonColor.WELCOME_TEXT_COLOR,
-                                        borderRadius: BorderRadius.circular(20)
-                                    ),
-                                    child: Center(child: Text("Pay",
-                                      style: TextStyle(
-                                          color: Colors.white,
-                                          fontSize: SizeConfig.blockSizeHorizontal*3.0,
-                                          fontFamily: 'Roboto_Bold',
-                                          fontWeight: FontWeight.w500
-                                      ),)),
-                                  ),
+                            GestureDetector(
+                              onDoubleTap: (){},
+                              onTap: (){
+                                Navigator.push(context, MaterialPageRoute(builder: (context)=>TransferFromQRScan()));
+                              },
+                              child: Container(
+                                height: SizeConfig.screenHeight*0.04,
+                                width: SizeConfig.screenWidth*0.2,
+                                decoration: BoxDecoration(
+                                    color: CommonColor.WELCOME_TEXT_COLOR,
+                                    borderRadius: BorderRadius.circular(20)
                                 ),
-                                Container(
-                                  height: SizeConfig.screenHeight*0.04,
-                                  width: SizeConfig.screenWidth*0.2,
-                                  decoration: BoxDecoration(
-                                      color: CommonColor.WELCOME_TEXT_COLOR,
-                                      borderRadius: BorderRadius.circular(20)
-                                  ),
-                                  child: Center(child: Text("Request",
-                                    style: TextStyle(
-                                        color: Colors.white,
-                                        fontSize: SizeConfig.blockSizeHorizontal*3.0,
-                                        fontFamily: 'Roboto_Bold',
-                                        fontWeight: FontWeight.w500
-                                    ),)),
-                                ),
-                                Container(
-                                    height: SizeConfig.screenHeight*0.04,
-                                    width: SizeConfig.screenWidth*0.5,
-                                    decoration: BoxDecoration(
-                                        color: CommonColor.WELCOME_TEXT_COLOR.withOpacity(0.07),
-                                        borderRadius: BorderRadius.circular(20)
-                                    ),
-                                    child: TextFormField(
-                                      decoration: InputDecoration(
-                                        suffixIcon: Icon(Icons.send),
-                                        suffixIconColor: Colors.black26,
-                                        contentPadding: EdgeInsets.only(bottom: SizeConfig.screenHeight*0.01, left: SizeConfig.screenWidth*0.03),
-                                        hintText:"Message...",
-                                        hintStyle: TextStyle(
-                                            color: Colors.black26,
-                                            fontSize: SizeConfig.blockSizeHorizontal*3.5,
-                                            fontFamily: 'Roboto_Regular',
-                                            fontWeight: FontWeight.w400
-                                        ),
-                                        enabledBorder: UnderlineInputBorder(
-                                          borderSide: BorderSide.none,
-                                        ),
-                                        focusedBorder: UnderlineInputBorder(
-                                          borderSide: BorderSide.none,
-                                        ),
-                                      ),
-                                      maxLines: 3,
-                                      minLines: 1,
-                                    )
-                                  // Row(
-                                  //   mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                  //   children: [
-                                  //     Padding(
-                                  //       padding: EdgeInsets.only(left: SizeConfig.screenWidth*0.05),
-                                  //       child: Text("Message..",style: TextStyle(
-                                  //           color: Colors.black26,
-                                  //           fontSize: SizeConfig.blockSizeHorizontal*3.5,
-                                  //           fontFamily: 'Roboto_Regular',
-                                  //           fontWeight: FontWeight.w400
-                                  //       ),),
-                                  //     ),
-                                  //     Padding(
-                                  //       padding: EdgeInsets.only(right: SizeConfig.screenWidth*0.05),
-                                  //       child: Icon(Icons.send,
-                                  //       color: Colors.black26,),
-                                  //     )
-                                  //   ],
-                                  // ),
-                                ),
-
-                              ],
+                                child: Center(child: Text("Pay",
+                                  style: TextStyle(
+                                      color: Colors.white,
+                                      fontSize: SizeConfig.blockSizeHorizontal*3.0,
+                                      fontFamily: 'Roboto_Bold',
+                                      fontWeight: FontWeight.w500
+                                  ),)),
+                              ),
                             ),
+                            Container(
+                              height: SizeConfig.screenHeight*0.04,
+                              width: SizeConfig.screenWidth*0.2,
+                              decoration: BoxDecoration(
+                                  color: CommonColor.WELCOME_TEXT_COLOR,
+                                  borderRadius: BorderRadius.circular(20)
+                              ),
+                              child: Center(child: Text("Request",
+                                style: TextStyle(
+                                    color: Colors.white,
+                                    fontSize: SizeConfig.blockSizeHorizontal*3.0,
+                                    fontFamily: 'Roboto_Bold',
+                                    fontWeight: FontWeight.w500
+                                ),)),
+                            ),
+                            Container(
+                                height: SizeConfig.screenHeight*0.04,
+                                width: SizeConfig.screenWidth*0.5,
+                                decoration: BoxDecoration(
+                                    color: CommonColor.WELCOME_TEXT_COLOR.withOpacity(0.07),
+                                    borderRadius: BorderRadius.circular(20)
+                                ),
+                                child: TextFormField(
+                                  controller: _textController,
+                                  decoration: InputDecoration(
+                                    suffixIcon: GestureDetector(
+                                      onDoubleTap: (){},
+                                      onTap: (){
+                                        sender.add(_textController.text);
+                                        
+                                        // senderList?.add(_textController.text.toString());
+                                        //
+                                        // print(senderList);
+                                        if(mounted){
+                                          setState(() {
+
+                                          });
+                                        }
+                                      },
+                                      child: Container(
+                                        color: Colors.transparent,
+                                          child: Icon(Icons.send)
+                                      ),
+                                    ),
+                                    suffixIconColor: Colors.black26,
+                                    contentPadding: EdgeInsets.only(bottom: SizeConfig.screenHeight*0.01, left: SizeConfig.screenWidth*0.03),
+                                    hintText:"Message...",
+                                    hintStyle: TextStyle(
+                                        color: Colors.black26,
+                                        fontSize: SizeConfig.blockSizeHorizontal*3.5,
+                                        fontFamily: 'Roboto_Regular',
+                                        fontWeight: FontWeight.w400
+                                    ),
+                                    enabledBorder: UnderlineInputBorder(
+                                      borderSide: BorderSide.none,
+                                    ),
+                                    focusedBorder: UnderlineInputBorder(
+                                      borderSide: BorderSide.none,
+                                    ),
+                                  ),
+                                  maxLines: 3,
+                                  minLines: 1,
+                                ),
+                            ),
+
                           ],
                         ),
                       ),
                     )
-                   /* Padding(
-                      padding: EdgeInsets.only(top: SizeConfig.screenHeight*0.93),
-                      child: Container(
-                        color: CommonColor.BLACK_COLOR,
-                        child: Row(
-                          mainAxisSize: MainAxisSize.max,
-                          children: [
-                            GestureDetector(
-                              onDoubleTap: () {},
-                              child: Container(
-                                color: Colors.transparent,
-                                child: Padding(
-                                  padding: EdgeInsets.only(
-                                    left: SizeConfig.screenWidth * 0.02,
-                                    right: SizeConfig.screenWidth * 0.02,
-
-                                  ),
-                                  child: Text(
-                                    "+",
-                                    style: TextStyle(
-                                      color: Colors.white,
-                                      fontSize: SizeConfig.safeBlockHorizontal * 11.0,
-                                      fontFamily: 'Roboto_Regular',
-                                    ),
-                                  ),
-                                ),
-                              ),
-                            ),
-                            Expanded(
-                              child: Padding(
-                                padding: EdgeInsets.only(
-                                  top: SizeConfig.screenHeight * 0.01,
-                                  bottom: SizeConfig.screenHeight * 0.01,
-                                ),
-                                child: Container(
-                                  alignment: Alignment.center,
-                                  decoration: BoxDecoration(
-                                    color: Colors.white,
-                                    borderRadius: BorderRadius.circular(05),
-                                  ),
-                                  child: TextFormField(
-                                    // keyboardType: TextInputType.multiline,
-                                    maxLines: 5,
-                                    minLines: 1,
-                                    controller: _textController,
-                                    textAlignVertical: TextAlignVertical.center,
-                                    maxLengthEnforcement: MaxLengthEnforcement.enforced,
-                                    focusNode: _textFocusNode,
-
-                                    // obscureText: true,
-
-                                    decoration: InputDecoration(
-
-                                      isDense: true,
-                                      border: InputBorder.none,
-                                      hintText: _textFocusNode.hasFocus ? "" : "Message...",
-                                      // counterText: '',
-                                      contentPadding: EdgeInsets.only(
-                                          left: SizeConfig.screenWidth * 0.03,
-                                          top: SizeConfig.screenHeight * 0.01,
-                                          bottom: SizeConfig.screenHeight * .01),
-                                      hintStyle: TextStyle(
-                                        fontFamily: "Roboto_Regular",
-                                        fontSize: SizeConfig.blockSizeHorizontal * 4.0,
-                                        color: Colors.black,
-                                      ),
-                                    ),
-                                    style: TextStyle(
-                                      fontFamily: "Roboto_Regular",
-                                      fontSize: SizeConfig.blockSizeHorizontal * 4.0,
-                                      color: CommonColor.BLACK_COLOR,
-                                    ),
-                                    textInputAction: TextInputAction.done,
-                                    onFieldSubmitted: (term) {
-                                      _chatFocus.unfocus();
-                                      // Navigator.pop(context);
-                                    },
-                                  ),
-                                ),
-                              ),
-                            ),
-                            GestureDetector(
-
-                                onDoubleTap: () {},
-                                child: Padding(
-                                  padding: EdgeInsets.only(
-                                    left: SizeConfig.screenWidth * 0.04,
-                                    right: SizeConfig.screenWidth * 0.04,
-
-                                  ),
-                                  child: new Container(
-                                    height: SizeConfig.screenHeight * .043,
-                                    width: SizeConfig.screenHeight * .043,
-                                    decoration: new BoxDecoration(
-                                      // color: CommonColor.OK_BUTTON_COLOR,
-                                      shape: BoxShape.circle,
-                                      image: new DecorationImage(
-                                        image: AssetImage("assets/images/send_msg.png"),
-                                        fit: BoxFit.fill,
-                                      ),
-                                    ),
-                                  ),
-                                )
-
-
-                            )
-                          ],
-                        ),
-                      ),
-                    )*/
                   ],
                 ),
               ),
@@ -682,4 +574,263 @@ class _ChatRoomScreenState extends State<ChatRoomScreen> {
       ),
     );
   }
+
+  Widget getSenderMessage(double parentHeight, double parentWidth){
+    return Padding(
+      padding: EdgeInsets.only(
+          right: parentWidth * .03,
+          left: parentWidth*0.3,
+          top: parentHeight * .03,
+          bottom: parentHeight * .008),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.end,
+        children: [
+          Flexible(
+            child: Container(
+              decoration: BoxDecoration(
+                borderRadius: const BorderRadius.only(
+                  topLeft: Radius.circular(10),
+                  bottomLeft: Radius.circular(10),
+                  bottomRight: Radius.circular(10),
+                ),
+                color: Colors.white,
+                boxShadow: <BoxShadow>[
+                  BoxShadow(
+                      color: Colors.black.withOpacity(0.1),
+                      blurRadius: 5,
+                      spreadRadius: 1,
+                      offset: const Offset(2, 6))
+                ],
+              ),
+              child: Stack(
+                alignment: Alignment.bottomRight,
+                children: [
+                  Padding(
+                    padding: EdgeInsets.only(
+                        top: parentHeight * .00,
+                        left: SizeConfig.screenWidth * .015,
+                        right: SizeConfig.screenWidth * .02,
+                        bottom: parentHeight * .03),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: <Widget>[
+                        Column(
+                          crossAxisAlignment: CrossAxisAlignment.end,
+                          children: [
+                            Padding(
+                              padding: EdgeInsets.only(
+                                right: parentWidth * .014,
+                                left: parentWidth * .012,
+                                top: parentHeight * .009,
+                              ),
+                              child: Row(
+                                mainAxisSize: MainAxisSize.min,
+                                children: [
+
+
+                                  Flexible(
+                                    child: Text("${sender.last}",
+                                      style: TextStyle(
+                                          fontSize: SizeConfig
+                                              .safeBlockHorizontal *
+                                              3.7,
+                                          color: CommonColor
+                                              .BLACK_COLOR,
+                                          fontFamily:
+                                          "Roboto_Regular"),),
+
+                                  )
+                                ],
+                              ),
+                            ),
+                          ],
+                        ),
+                      ],
+                    ),
+                  ),
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.end,
+                    children: [
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.end,
+                        mainAxisSize: MainAxisSize.min,
+                        children: <Widget>[
+                          Row(
+                            children: [
+                              Padding(
+                                padding: EdgeInsets.only(
+                                    left: parentWidth * 0.01,
+                                    right: parentWidth * 0.03,
+                                  bottom: parentHeight*0.01
+                                ),
+                                child: Text(
+                                  "12 PM",
+                                  style: TextStyle(
+                                      fontSize: SizeConfig.blockSizeHorizontal*2.5,
+                                      fontWeight: FontWeight.w400,
+                                      color: Colors.black26,
+                                      fontFamily: "Avenir_Light"),
+                                  textAlign: TextAlign.right,
+                                ),
+                              ),
+                            ],
+                          ),
+                        ],
+                      ),
+                    ],
+                  ),
+                ],
+              ),
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+
+  Widget getRecieverMessage(double parentHeight, double parentWidth){
+    return  Padding(
+      padding: EdgeInsets.only(
+          left: parentWidth * .05,
+          right: parentWidth * .3,
+          top: parentHeight * .03,
+          bottom: parentHeight * .008),
+      child: Padding(
+        padding: EdgeInsets.only(left: parentWidth * 0.0),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.start,
+          children: [
+            Flexible(
+              child: Container(
+                padding: EdgeInsets.only(
+                  left: parentWidth * .0,
+                  right: parentWidth * .0,
+                  top: parentHeight * .0,
+                  /* bottom: screenHeight * .01,*/
+                ),
+                decoration: BoxDecoration(
+                  borderRadius: const BorderRadius.only(
+                    bottomLeft: Radius.circular(10),
+                    topRight: Radius.circular(10),
+                    bottomRight: Radius.circular(10),
+                  ),
+                  //  color: CommonColor.CHAT_RECIVER,
+                  color: CommonColor.WHITE_COLOR,
+                  boxShadow: <BoxShadow>[
+                    BoxShadow(
+                        color: Colors.black.withOpacity(0.1),
+                        blurRadius: 5,
+                        spreadRadius: 1,
+                        offset: const Offset(2, 6))
+                  ],
+                ),
+                child: Padding(
+                  padding: const EdgeInsets.all(2.0),
+                  child: Stack(
+                    alignment: Alignment.bottomRight,
+                    children: [
+                      Padding(
+                        padding: EdgeInsets.only(
+                            left: parentWidth * .015,
+                            right: parentWidth * .02,
+                            bottom: parentHeight * .02),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: <Widget>[
+                            Column(
+                              crossAxisAlignment: CrossAxisAlignment.end,
+                              children: [
+                                Padding(
+                                  padding: EdgeInsets.only(
+                                    right: parentWidth * .014,
+                                    left: parentWidth * .012,
+                                    top: parentHeight * .01,
+                                    bottom: parentHeight * .00,
+                                  ),
+                                  child: Container(
+                                    child: Row(
+                                      mainAxisSize: MainAxisSize.min,
+                                      children: [
+                                        Flexible(
+                                          child: Text("Hiifejweuiw3riurhui3hruihr3hr23hrh3rh3uhr34uir3r34hu",
+                                            style: TextStyle(
+                                                fontSize: SizeConfig
+                                                    .safeBlockHorizontal *
+                                                    3.7,
+                                                color: CommonColor
+                                                    .BLACK_COLOR,
+                                                fontFamily:
+                                                "Roboto_Regular"),
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ],
+                        ),
+                      ),
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.end,
+                        children: [
+                          Padding(
+                            padding: EdgeInsets.only(left: SizeConfig.screenWidth*0.03,
+                                right: SizeConfig.screenWidth*0.03),
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.end,
+                              mainAxisSize: MainAxisSize.min,
+                              children: [
+                                Row(
+                                  children: <Widget>[
+                                    Padding(
+                                      padding: const EdgeInsets.all(0.0),
+                                      child: Icon(
+                                        Icons.access_time,
+                                        size: parentHeight * .025,
+                                        color: Colors.transparent,
+                                      ),
+                                    ),
+                                    Padding(
+                                      padding: EdgeInsets.only(
+                                        top: parentHeight * .01,
+                                        bottom: parentWidth * .01,
+                                        right: parentWidth * .012,
+                                        left: parentWidth * .013,
+                                      ),
+                                      child: Text(
+                                        "12 PM",
+                                        style: TextStyle(
+                                            fontSize: SizeConfig.blockSizeHorizontal*2.5,
+                                            fontWeight: FontWeight.w400,
+                                            color:  Colors.black26,
+                                            fontFamily: "Avenir_Medium"),
+                                        textAlign: TextAlign.right,
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ],
+                            ),
+                          ),
+                        ],
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+class ChatModel {
+  String? sendMsg;
+
+  ChatModel(String string);
+
 }

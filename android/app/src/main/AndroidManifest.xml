@@ -12,7 +12,7 @@
 
 
    <application
-        android:label="scspay"
+        android:label="SCS Pay"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
         <activity
